@@ -1,0 +1,12 @@
+version: '2'
+services:
+  app:
+    build: .
+    tty: true
+    stdin_open: true
+    environment:
+      RAILS_ENV: development
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/usr/src/rubicure-graphql
