@@ -1,18 +1,18 @@
 module Types
   class GirlType < Types::BaseObject
-    field :girl_name, String, null: false
-    field :human_name, String, null: false
-    field :human_full_name, String, null: false
-    field :precure_name, String, null: false
-    field :cast_name, String, null: true
-    field :color, String, null: true
-    field :created_date, String, null: true
-    field :birthday, String, null: true
-    field :transform_message, String, null: true
-    field :extra_names, String, null: true
-    field :attack_messages, String, null: true
-    field :transform_calls, String, null: true
-    field :full_name, String, null: false
+    field :girl_name, String, null: false, description: "Precure's symbol name"
+    field :human_name, String, null: false, description: "Precure's name before transformation"
+    field :human_full_name, String, null: false, description: "Precure's canonical name before transformation"
+    field :precure_name, String, null: false, description: "Precure's name after transformation"
+    field :cast_name, String, null: true, description: "Precure's character voice actor/actoress name"
+    field :color, String, null: true, description: "Precure's color"
+    field :created_date, String, null: true, description: "First seen on TV/theaters"
+    field :birthday, String, null: true, description: "Precure's birthday(if present)"
+    field :transform_message, String, null: true, description: "Precure's transform message"
+    field :extra_names, [String], null: true, description: "Precure's names after special transformation"
+    field :attack_messages, [String], null: true, description: "Precure's message when attack"
+    field :transform_calls, [String], null: true, description: "Precure's transformation call"
+    field :full_name, String, null: false, description: "Precure's name before transformation(full name or human name)"
 
     def girl_name
       "#{object.girl_name}"
@@ -51,15 +51,18 @@ module Types
     end
 
     def extra_names
-      "#{object.extra_names}"
+      return object.extra_names if object.extra_names.is_a?(Array)
+      []
     end
 
     def attack_messages
-      "#{object.attack_messages}"
+      return object.attack_messages if object.attack_messages.is_a?(Array)
+      []
     end
 
     def transform_calls
-      "#{object.transform_calls}"
+      return object.transform_calls if object.transform_calls.is_a?(Array)
+      []
     end
 
     def full_name
