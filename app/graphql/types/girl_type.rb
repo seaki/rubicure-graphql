@@ -12,6 +12,7 @@ module Types
     field :extra_names, String, null: true
     field :attack_messages, String, null: true
     field :transform_calls, String, null: true
+    field :full_name, String, null: false
 
     def girl_name
       "#{object.girl_name}"
@@ -59,6 +60,10 @@ module Types
 
     def transform_calls
       "#{object.transform_calls}"
+    end
+
+    def full_name
+      "#{object.full_name}"
     end
   end
 end
