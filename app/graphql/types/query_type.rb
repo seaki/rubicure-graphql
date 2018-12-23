@@ -12,6 +12,10 @@ module Types
       Rubicure::Girl.find(girl_name.intern)
     end
 
+    Precure.all_girls.map(&:girl_name).each do |girl|
+      field girl.intern, Types::GirlType, null: false
+    end
+
     field :precure_all_stars, [Types::GirlType], null: false, description: "Get Precure All Stars" do
       argument :series, String, required: false, description: "Prescribe which series from Precure All Stars(if absent, prescribes 'Futari wa Pretty Cure' to 'Maho Girls Precure')"
     end
