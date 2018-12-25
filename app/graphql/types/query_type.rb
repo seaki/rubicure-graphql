@@ -12,6 +12,13 @@ module Types
       Rubicure::Girl.find(girl_name.intern)
     end
 
+    field :series, Types::SeriesType, null: false, description: "Get information about series" do
+      argument :series_name, String, required: true, description: "Series symbol"
+    end
+    def series(series_name:)
+      Rubicure::Series.find(series_name.intern)
+    end
+
     field :precure_all_stars, [Types::GirlType], null: false, description: "Get Precure All Stars" do
       argument :series, String, required: false, description: "Prescribe which series from Precure All Stars(if absent, prescribes 'Futari wa Pretty Cure' to 'Maho Girls Precure')"
     end
@@ -38,6 +45,11 @@ module Types
     field :precure_all, [Types::GirlType], null: false, description: "Get all Precure"
     def precure_all
       Precure.all
+    end
+
+    field :all_series, [Types::SeriesType], null: false, description: "Get all series"
+    def all_series
+      Precure
     end
   end
 end
