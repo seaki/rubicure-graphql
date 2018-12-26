@@ -21,7 +21,7 @@ module Types
 
     field :all_movies, [Types::MovieType], null: false, description: "Get all movies"
     def all_movies
-      Rubicure::Movie.names.map do |name|
+      Rubicure::Movie.uniq_names.map do |name|
         Rubicure::Movie.find(name)
       end
     end
