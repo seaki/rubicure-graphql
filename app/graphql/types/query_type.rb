@@ -12,6 +12,20 @@ module Types
       Rubicure::Girl.find(girl_name.intern)
     end
 
+    field :movie, Types::MovieType, null: false, description: "Get information about a movie" do
+      argument :movie_name, String, required: true, description: "Movie's symbol"
+    end
+    def movie(movie_name:)
+      Rubicure::Movie.find(movie_name.intern)
+    end
+
+    field :all_movies, [Types::MovieType], null: false, description: "Get all movies"
+    def all_movies
+      Rubicure::Movie.names.map do |name|
+        Rubicure::Movie.find(name)
+      end
+    end
+
     field :precure_all_stars, [Types::GirlType], null: false, description: "Get Precure All Stars" do
       argument :series, String, required: false, description: "Prescribe which series from Precure All Stars(if absent, prescribes 'Futari wa Pretty Cure' to 'Maho Girls Precure')"
     end
