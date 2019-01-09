@@ -22,6 +22,12 @@ module Types
       field girl.intern, Types::GirlType, null: false
       # define method dynamically
       define_cure girl.intern
+
+    field :series, Types::SeriesType, null: false, description: "Get information about series" do
+      argument :series_name, String, required: true, description: "Series symbol"
+    end
+    def series(series_name:)
+      Rubicure::Series.find(series_name.intern)
     end
 
     field :precure_all_stars, [Types::GirlType], null: false, description: "Get Precure All Stars" do
@@ -50,6 +56,11 @@ module Types
     field :precure_all, [Types::GirlType], null: false, description: "Get all Precure"
     def precure_all
       Precure.all
+    end
+
+    field :all_series, [Types::SeriesType], null: false, description: "Get all series"
+    def all_series
+      Precure
     end
   end
 end
