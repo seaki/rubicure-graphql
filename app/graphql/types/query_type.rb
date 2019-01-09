@@ -12,6 +12,19 @@ module Types
       Rubicure::Girl.find(girl_name.intern)
     end
 
+    field :movie, Types::MovieType, null: false, description: "Get information about a movie" do
+      argument :movie_name, String, required: true, description: "Movie's symbol"
+    end
+    def movie(movie_name:)
+      Rubicure::Movie.find(movie_name.intern)
+    end
+
+    field :all_movies, [Types::MovieType], null: false, description: "Get all movies"
+    def all_movies
+      Rubicure::Movie.uniq_names.map do |name|
+        Rubicure::Movie.find(name)
+      end
+
     def self.define_cure(name)
       define_method(name) {
         Rubicure::Girl.find(name)
