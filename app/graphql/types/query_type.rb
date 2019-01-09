@@ -12,6 +12,17 @@ module Types
       Rubicure::Girl.find(girl_name.intern)
     end
 
+    def self.define_cure(name)
+      define_method(name) {
+        Rubicure::Girl.find(name)
+      }
+    end
+
+    Precure.all_girls.map(&:girl_name).each do |girl|
+      field girl.intern, Types::GirlType, null: false
+      # define method dynamically
+      define_cure girl.intern
+
     field :series, Types::SeriesType, null: false, description: "Get information about series" do
       argument :series_name, String, required: true, description: "Series symbol"
     end
