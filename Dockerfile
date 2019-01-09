@@ -1,12 +1,10 @@
-FROM ruby:2.4-alpine
+FROM ruby:2.4.4-alpine
 
 ENV LANG C.UTF-8
 ENV APP_ROOT /usr/src/rubicure-graphql
 
 RUN mkdir ${APP_ROOT}
 WORKDIR ${APP_ROOT}
-ADD Gemfile      ${APP_ROOT}/Gemfile
-ADD Gemfile.lock ${APP_ROOT}/Gemfile.lock
 
 RUN apk update
 # && \
@@ -27,6 +25,10 @@ nodejs \
 sqlite-libs \
 tzdata
 # && \
+
+ADD Gemfile      ${APP_ROOT}/Gemfile
+ADD Gemfile.lock ${APP_ROOT}/Gemfile.lock
+
 RUN bundle install -j4
 # && \
 #apk del .build-dependencies
