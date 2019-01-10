@@ -24,6 +24,7 @@ module Types
       Rubicure::Movie.uniq_names.map do |name|
         Rubicure::Movie.find(name)
       end
+    end
 
     def self.define_cure(name)
       define_method(name) {
@@ -35,6 +36,7 @@ module Types
       field girl.intern, Types::GirlType, null: false
       # define method dynamically
       define_cure girl.intern
+    end
 
     field :series, Types::SeriesType, null: false, description: "Get information about series" do
       argument :series_name, String, required: true, description: "Series symbol"
