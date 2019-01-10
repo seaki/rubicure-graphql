@@ -1,24 +1,36 @@
-# README
+# Rubicure-graphql
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" GraphQL implementation based on Rubicure gem.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+* ruby >= 2.4.4
 
-* System dependencies
+* rails >= 5.2.1
 
-* Configuration
+## Dependencies
 
-* Database creation
+* rubicure >= 1.1.7
 
-* Database initialization
+## How to deploy
 
-* How to run the test suite
+### Using docker-compose
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ docker-compose build
+$ docker-compose run --rm app bundle install
+```
 
-* Deployment instructions
+### Deploy to heroku
 
-* ...
+With Heroku CLI
+
+```
+$ heroku login
+$ heroku create
+$ git push heroku master
+```
+
+## How to use
+
+Call from your GraphQL client. For your convenient, this app including rails-graphiql, access http(s)://(hostname):(port)/graphiql to try API in GraphiQL.
