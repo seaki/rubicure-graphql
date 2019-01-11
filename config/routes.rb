@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/', to: redirect('/graphiql')
   # if Rails.env.development?
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/graphql"
   # end
