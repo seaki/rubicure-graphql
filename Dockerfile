@@ -11,6 +11,8 @@ RUN apk upgrade
 RUN apk add --update --no-cache --virtual=build-dependencies build-base sqlite-dev
 RUN apk add --update --no-cache nodejs sqlite-libs tzdata
 
+RUN npm -g install yarn
+
 ADD Gemfile      ${APP_ROOT}/Gemfile
 ADD Gemfile.lock ${APP_ROOT}/Gemfile.lock
 
