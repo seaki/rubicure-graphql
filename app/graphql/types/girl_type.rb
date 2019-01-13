@@ -11,7 +11,7 @@ module Types
     field :transform_message, String, null: true, description: "Precure's transform message"
     field :transform_messages, [Types::TransformMessageType], null: true, description: "Precure's transform message(if present)"
     field :extra_names, [String], null: true, description: "Precure's names after special transformation"
-    field :attack_messages, [String], null: true, description: "Precure's message when attack"
+    field :attack_messages, [Types::AttackMessageType], null: true, description: "Precure's message when attack"
     field :transform_calls, [String], null: true, description: "Precure's transformation call"
     field :full_name, String, null: false, description: "Precure's name before transformation(full name or human name)"
     field :transform_styles, [String], null: true, description: "Transform styles(if present)"
@@ -65,7 +65,11 @@ module Types
     end
 
     def attack_messages
-      return object.attack_messages if object.attack_messages.is_a?(Array)
+      begin
+        object.transform_styles
+      rescue => e
+        return [["default", object]]
+      end
     end
 
     def transform_calls
