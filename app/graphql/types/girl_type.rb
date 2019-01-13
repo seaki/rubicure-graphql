@@ -16,6 +16,7 @@ module Types
     field :transform_calls, [String], null: true, description: "Precure's transformation call"
     field :full_name, String, null: false, description: "Precure's name before transformation(full name or human name)"
     field :transform_styles, [String], null: true, description: "Transform styles(if present)"
+    field :pikarin_janken, String, null: true, description: "Pikarin janken(if girl is CurePeace)"
 
     def girl_name
       object.girl_name
@@ -95,6 +96,23 @@ module Types
       rescue => e
         return nil
       end
+    end
+
+    HANDS =
+    (["グー"] * 13) +
+    (["チョキ"] * 14) +
+    (["パー"] * 15) +
+    ["グッチョッパー"]
+    MESSAGE = <<JANKEN.freeze
+ピカピカピカリン
+ジャンケンポン！
+（%s）
+JANKEN
+
+    def pikarin_janken
+      return nil unless object.respond_to?(:pikarin_janken)
+      # ここも再利用しづらい形で定義されているので、オリジナルの rubicure から持ってくる
+      MESSAGE % HANDS.sample
     end
   end
 end
