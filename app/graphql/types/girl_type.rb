@@ -8,7 +8,7 @@ module Types
     field :color, String, null: true, description: "Precure's color"
     field :created_date, String, null: true, description: "First seen on TV/theaters"
     field :birthday, String, null: true, description: "Precure's birthday(if present)"
-    field :transform_message, String, null: true, description: "Precure's transform message"
+    field :transform_message, String, null: true, description: "Precure's transform message(if present)", deprecation_reason: "Doesn't work properly with girls from Maho girls Precure"
     field :transform_messages, [Types::TransformMessageType], null: true, description: "Precure's transform message(if present)"
     field :extra_names, [String], null: true, description: "Precure's names after special transformation"
     field :attack_messages, [Types::AttackMessageType], null: true, description: "Precure's message when attack"
