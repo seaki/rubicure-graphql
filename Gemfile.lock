@@ -55,7 +55,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.4)
     crass (1.0.4)
     erubi (1.7.1)
     execjs (2.7.0)
@@ -67,7 +67,7 @@ GEM
       sprockets-rails
     graphql (1.8.10)
     hashie (3.6.0)
-    i18n (1.1.0)
+    i18n (1.5.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
@@ -125,7 +125,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    rubicure (1.1.7)
+    rubicure (1.1.8)
       activesupport (>= 5.0.0)
       hashie (>= 2.0.5)
       sengiri_yaml (>= 0.0.2)
