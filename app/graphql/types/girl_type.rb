@@ -13,7 +13,7 @@ module Types
     field :attack_messages, [String], null: true, description: "Precure's message when attack"
     field :transform_calls, [String], null: true, description: "Precure's transformation call"
     field :full_name, String, null: false, description: "Precure's name before transformation(full name or human name)"
-    field :transform_styles, [String], null: true
+    field :transform_styles, [String], null: true, description: "Transform styles(if present)"
 
     def girl_name
       object.girl_name
@@ -68,7 +68,11 @@ module Types
     end
 
     def transform_styles
-      object.transform_styles if object.method_defined?(:transform_styles)
+      begin
+        object.transform_styles.map {|s| s.first}
+      rescue => e
+        return nil
+      end
     end
   end
 end
