@@ -3,6 +3,7 @@ module Types
     field :girl_name, String, null: false, description: "Precure's symbol name"
     field :human_name, String, null: false, description: "Precure's name before transformation"
     field :human_full_name, String, null: true, description: "Precure's canonical name before transformation"
+    field :human_turnover_name, String, null: true, description: "Precure's turnovered name"
     field :precure_name, String, null: false, description: "Precure's name after transformation"
     field :cast_name, String, null: true, description: "Precure's character voice actor/actoress name"
     field :color, String, null: true, description: "Precure's color"
@@ -26,6 +27,14 @@ module Types
 
     def human_full_name
       object.human_full_name
+    end
+
+    def human_turnover_name
+      # コードに直で書かれているので、こっちも直で書いてやるｩｩｩ
+      return "イース" if object.girl_name == "cure_passion"
+      return "セイレーン" if object.girl_name == "cure_beat"
+      return "トワイライト" if object.girl_name == "cure_scarlet"
+      human_name
     end
 
     def precure_name
