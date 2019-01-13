@@ -9,6 +9,7 @@ module Types
     field :created_date, String, null: true, description: "First seen on TV/theaters"
     field :birthday, String, null: true, description: "Precure's birthday(if present)"
     field :transform_message, String, null: true, description: "Precure's transform message"
+    field :transform_messages, [Types::TransformMessageType], null: true, description: "Precure's transform message(if present)"
     field :extra_names, [String], null: true, description: "Precure's names after special transformation"
     field :attack_messages, [String], null: true, description: "Precure's message when attack"
     field :transform_calls, [String], null: true, description: "Precure's transformation call"
@@ -49,6 +50,14 @@ module Types
 
     def transform_message
       object.transform_message # まほプリのときは定義されていないのでnilが帰る、transform_stylesにスタイル指定しろとするか
+    end
+
+    def transform_messages
+      begin
+        object.transform_styles
+      rescue => e
+        return [["default", object]]
+      end
     end
 
     def extra_names
