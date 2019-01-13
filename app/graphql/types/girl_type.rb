@@ -8,12 +8,13 @@ module Types
     field :color, String, null: true, description: "Precure's color"
     field :created_date, String, null: true, description: "First seen on TV/theaters"
     field :birthday, String, null: true, description: "Precure's birthday(if present)"
-    field :transform_message, String, null: true, description: "Precure's transform message"
+    field :transform_message, String, null: true, description: "Precure's transform message(if present)", deprecation_reason: "Doesn't work properly with girls from Maho girls Precure"
+    field :transform_messages, [Types::TransformMessageType], null: true, description: "Precure's transform message(if present)"
     field :extra_names, [String], null: true, description: "Precure's names after special transformation"
-    field :attack_messages, [String], null: true, description: "Precure's message when attack"
+    field :attack_messages, [Types::AttackMessageType], null: true, description: "Precure's message when attack"
     field :transform_calls, [String], null: true, description: "Precure's transformation call"
     field :full_name, String, null: false, description: "Precure's name before transformation(full name or human name)"
-    field :transform_styles, [String], null: true
+    field :transform_styles, [String], null: true, description: "Transform styles(if present)"
 
     def girl_name
       object.girl_name
@@ -51,12 +52,24 @@ module Types
       object.transform_message # まほプリのときは定義されていないのでnilが帰る、transform_stylesにスタイル指定しろとするか
     end
 
+    def transform_messages
+      begin
+        object.transform_styles
+      rescue => e
+        return [["default", object]]
+      end
+    end
+
     def extra_names
       return object.extra_names if object.extra_names.is_a?(Array)
     end
 
     def attack_messages
-      return object.attack_messages if object.attack_messages.is_a?(Array)
+      begin
+        object.transform_styles
+      rescue => e
+        return [["default", object]]
+      end
     end
 
     def transform_calls
@@ -68,7 +81,11 @@ module Types
     end
 
     def transform_styles
-      object.transform_styles if object.method_defined?(:transform_styles)
+      begin
+        object.transform_styles.map {|s| s.first}
+      rescue => e
+        return nil
+      end
     end
   end
 end
