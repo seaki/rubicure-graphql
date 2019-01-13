@@ -77,5 +77,17 @@ module Types
     def all_series
       Precure
     end
+
+    field :colors, [Types::ColorType], null: false, description: "Get colors and girls"
+    def colors
+      Rubicure::Girl.colors
+    end
+
+    field :color, Types::ColorType, null: false, description: "Get color and girls specified color" do
+      argument :color, String, required: true, description: "Specified color"
+    end
+    def color(color:)
+      return color.intern if Rubicure::Girl.colors.include?(color.intern)
+    end
   end
 end
