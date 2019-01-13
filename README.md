@@ -1,6 +1,6 @@
 # Rubicure-graphql
 
-Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" GraphQL implementation based on Rubicure gem.
+Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" GraphQL implementation based on [Rubicure gem](https://rubygems.org/gems/rubicure).
 
 ## Requirements
 
@@ -34,3 +34,12 @@ $ git push heroku master
 ## How to use
 
 Call from your GraphQL client. For your convenient, this app including rails-graphiql, access http(s)://(hostname):(port)/graphiql to try API in GraphiQL.
+
+## You can try Rubicure-graphql in GraphiQL
+[https://rubicure-graphql.herokuapp.com/graphiql](https://rubicure-graphql.herokuapp.com/graphiql)
+
+## How to contribute
+
+1. Fork this repo
+2. Fun with this code
+3. Make pull request
