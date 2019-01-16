@@ -260,4 +260,71 @@ QUERYSTRING
       it { expect(result["data"]["cureBlack"]["attackMessages"].map{|e| e["transformStyle"]}).to eq %w[default] }
     end
   end
+
+  describe "girl(girlName: \"miracle\") between cureMiracle" do
+    let(:query_string) do
+      <<QUERYSTRING
+query {
+  girl(girlName: "miracle")
+  {
+    girlName
+    humanName
+    humanFullName
+    humanTurnoverName
+    precureName
+    castName
+    color
+    createdDate
+    birthday
+    transformMessages
+    {
+      transformStyle
+      transformMessage
+    }
+    extraNames
+    attackMessages
+    {
+      transformStyle
+      attackMessages
+    }
+    transformCalls
+    fullName
+    transformStyles
+    pikarinJanken
+  }
+  cureMiracle
+  {
+    girlName
+    humanName
+    humanFullName
+    humanTurnoverName
+    precureName
+    castName
+    color
+    createdDate
+    birthday
+    transformMessages
+    {
+      transformStyle
+      transformMessage
+    }
+    extraNames
+    attackMessages
+    {
+      transformStyle
+      attackMessages
+    }
+    transformCalls
+    fullName
+    transformStyles
+    pikarinJanken
+  }
+}
+QUERYSTRING
+    end
+
+    context "are" do
+      it { expect(result["data"]["girl"]).to eq result["data"]["cureMiracle"] }
+    end
+  end
 end
