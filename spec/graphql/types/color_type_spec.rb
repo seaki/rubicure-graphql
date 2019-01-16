@@ -20,11 +20,11 @@ RSpec.describe Types::ColorType do
 
   let(:transform_styles) { %w[diamond ruby sapphire topaz] }
 
-  describe "rainbow" do
+  describe "pink" do
     let(:query_string) do
       <<QUERYSTRING
 {
-  color(color: "rainbow")
+  color(color: "pink")
   {
     color
     girls {
@@ -36,12 +36,12 @@ QUERYSTRING
     end
 
     context "has color and it" do
-      it { expect(result["data"]["color"]["color"]).to eq "rainbow" }
+      it { expect(result["data"]["color"]["color"]).to eq "pink" }
     end
 
     context "has girls and it" do
-      it { expect(result["data"]["color"]["girls"].count).to eq 1 }
-      it { expect(result["data"]["color"]["girls"].map{|e| e["girlName"]}).to eq %w[cure_parfait] }
+      it { expect(result["data"]["color"]["girls"].count).to eq Precure.all_girls.select(&:pink?).count }
+      it { expect(result["data"]["color"]["girls"].map{|e| e["girlName"]}).to eq Precure.all_girls.select(&:pink?).map(&:girl_name) }
     end
   end
 end

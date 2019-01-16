@@ -59,31 +59,31 @@ QUERYSTRING
     end
 
     context "allMovies" do
-      it { expect(result["data"]["allMovies"].count).to eq 11 }
+      it { expect(result["data"]["allMovies"].count).to eq Rubicure::Movie.uniq_names.count }
     end
 
     context "allSeries" do
-      it { expect(result["data"]["allSeries"].count).to eq 15 }
+      it { expect(result["data"]["allSeries"].count).to eq Precure.count }
     end
 
     context "colors" do
-      it { expect(result["data"]["colors"].count).to eq 9 }
+      it { expect(result["data"]["colors"].count).to eq Rubicure::Girl.colors.count }
     end
 
-    context "precureAllStars" do
-      it { expect(result["data"]["precureAllStars"].count).to eq 37 }
+    context "precureAllStars(series: \"ns3\")" do
+      it { expect(result["data"]["precureAllStars"].count).to eq Precure.all_stars(:ns3).count }
     end
 
     context "precureDreamStars" do
-      it { expect(result["data"]["precureDreamStars"].count).to eq 12 }
+      it { expect(result["data"]["precureDreamStars"].count).to eq Precure.dream_stars.count }
     end
 
     context "precureSuperStars" do
-      it { expect(result["data"]["precureSuperStars"].count).to eq 12 }
+      it { expect(result["data"]["precureSuperStars"].count).to eq Precure.super_stars.count }
     end
 
     context "precureAllGirls" do
-      it { expect(result["data"]["precureAllGirls"].count).to eq 56 }
+      it { expect(result["data"]["precureAllGirls"].count).to eq Precure.all_girls.count }
     end
 
     context "precureAll" do

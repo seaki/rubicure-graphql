@@ -18,7 +18,7 @@ RSpec.describe Types::GirlType do
     res
   }
 
-  let(:transform_styles) { %w[diamond ruby sapphire topaz] }
+  # let(:transform_styles) { %w[diamond ruby sapphire topaz] }
 
   describe "cureMiracle" do
     let(:query_string) do
@@ -60,7 +60,7 @@ QUERYSTRING
     end
 
     context "has humanName and it" do
-      it { expect(result["data"]["cureMiracle"]["humanName"]).to eq "朝日奈みらい" }
+      it { expect(result["data"]["cureMiracle"]["humanName"]).to eq Cure.miracle.human_name }
     end
 
     context "has humanFullName and it" do
@@ -75,35 +75,35 @@ QUERYSTRING
     end
 
     context "has precureName and it" do
-      it { expect(result["data"]["cureMiracle"]["precureName"]).to eq "キュアミラクル" }
+      it { expect(result["data"]["cureMiracle"]["precureName"]).to eq Cure.miracle.precure_name }
     end
 
     context "has castName and it" do
-      it { expect(result["data"]["cureMiracle"]["castName"]).to eq "高橋李依" }
+      it { expect(result["data"]["cureMiracle"]["castName"]).to eq Cure.miracle.cast_name }
     end
 
     context "has color and it" do
-      it { expect(result["data"]["cureMiracle"]["color"]).to eq "pink" }
+      it { expect(result["data"]["cureMiracle"]["color"]).to eq Cure.miracle.color }
     end
 
     context "has createdDate and it" do
-      it { expect(result["data"]["cureMiracle"]["createdDate"]).to eq "2016-02-07" }
+      it { expect(result["data"]["cureMiracle"]["createdDate"]).to eq "#{Cure.miracle.created_date}" }
     end
 
     context "has birthday and it" do
-      it { expect(result["data"]["cureMiracle"]["birthday"]).to eq "6/12" }
+      it { expect(result["data"]["cureMiracle"]["birthday"]).to eq "#{Cure.miracle.birthday}" }
     end
 
     context "has transformStyles and it" do
       let(:r_transform_styles) { result["data"]["cureMiracle"]["transformStyles"] }
-      it { expect(r_transform_styles.count).to eq 4 }
-      it { expect(r_transform_styles).to eq transform_styles }
+      it { expect(r_transform_styles.count).to eq Cure.miracle.transform_styles.count }
+      it { expect(r_transform_styles).to eq Cure.miracle.transform_styles.map{|s| s.first.to_s} }
     end
 
     context "has transformMessages and it" do
       let(:r_transform_messages) { result["data"]["cureMiracle"]["transformMessages"] }
       it { expect(r_transform_messages.count).to eq 4 }
-      it { expect(r_transform_messages.map{|e| e["transformStyle"]}).to eq transform_styles }
+      it { expect(r_transform_messages.map{|e| e["transformStyle"]}).to eq Cure.miracle.transform_styles.map{|s| s.first.to_s} }
       it { expect(r_transform_messages.map{|e| e["transformMessage"]}).to all( be_truthy ) }
       it do
         expect(r_transform_messages.map{|e| e["transformStyle"]}).to \
@@ -118,7 +118,7 @@ QUERYSTRING
     context "has attackMessages and it" do
       let(:r_attack_messages) { result["data"]["cureMiracle"]["attackMessages"] }
       it { expect(r_attack_messages.count).to eq 4 }
-      it { expect(r_attack_messages.map{|e| e["transformStyle"]}).to eq transform_styles }
+      it { expect(r_attack_messages.map{|e| e["transformStyle"]}).to eq Cure.miracle.transform_styles.map{|s| s.first.to_s} }
       it { expect(r_attack_messages.map{|e| e["attackMessages"]}).to all( be_a(Array) ) }
       it do
         expect(r_attack_messages.map{|e| e["transformStyle"]}).to \
@@ -127,7 +127,7 @@ QUERYSTRING
     end
 
     context "has transformCalls and it" do
-      it { expect(result["data"]["cureMiracle"]["transformCalls"]).to eq %w[cure_up_rapapa] }
+      it { expect(result["data"]["cureMiracle"]["transformCalls"]).to eq Cure.miracle.transform_calls }
     end
 
     context "has fullName and it" do
@@ -180,9 +180,9 @@ QUERYSTRING
     end
 
     context "has humanTurnoverName and it" do
-      it { expect(result["data"]["curePassion"]["humanTurnoverName"]).to eq "イース" }
-      it { expect(result["data"]["cureBeat"]["humanTurnoverName"]).to eq "セイレーン" }
-      it { expect(result["data"]["cureScarlet"]["humanTurnoverName"]).to eq "トワイライト" }
+      it { expect(result["data"]["curePassion"]["humanTurnoverName"]).to eq (!Cure.passion).human_name }
+      it { expect(result["data"]["cureBeat"]["humanTurnoverName"]).to eq (!Cure.beat).human_name }
+      it { expect(result["data"]["cureScarlet"]["humanTurnoverName"]).to eq (!Cure.scarlet).human_name }
     end
   end
 
@@ -203,8 +203,8 @@ QUERYSTRING
     end
 
     context "has humanFullName and it" do
-      it { expect(result["data"]["curePrincess"]["humanFullName"]).to eq "ヒメルダ・ウインドウ・キュアクイーン・オブ・ザ・ブルースカイ" }
-      it { expect(result["data"]["cureScarlet"]["humanFullName"]).to eq "プリンセス・ホープ・ディライト・トワ" }
+      it { expect(result["data"]["curePrincess"]["humanFullName"]).to eq Cure.princess.human_full_name }
+      it { expect(result["data"]["cureScarlet"]["humanFullName"]).to eq Cure.scarlet.human_full_name }
     end
   end
 
@@ -233,9 +233,9 @@ QUERYSTRING
     end
 
     context "are defined when Maho girls Precure" do
-      it { expect(result["data"]["cureMiracle"]["transformStyles"]).to eq transform_styles }
-      it { expect(result["data"]["cureMagical"]["transformStyles"]).to eq transform_styles }
-      it { expect(result["data"]["cureFelice"]["transformStyles"]).to eq %w[emerald] }
+      it { expect(result["data"]["cureMiracle"]["transformStyles"]).to eq Cure.miracle.transform_styles.map{|s| s.first.to_s} }
+      it { expect(result["data"]["cureMagical"]["transformStyles"]).to eq Cure.magical.transform_styles.map{|s| s.first.to_s} }
+      it { expect(result["data"]["cureFelice"]["transformStyles"]).to eq Cure.felice.transform_styles.map{|s| s.first.to_s} }
     end
     context "are not defined expect Maho girls Precure" do
       it { expect(result["data"]["cureBlack"]["transformStyles"]).to be_nil }

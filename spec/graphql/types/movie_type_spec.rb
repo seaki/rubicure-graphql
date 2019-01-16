@@ -18,11 +18,11 @@ RSpec.describe Types::MovieType do
     res
   }
 
-  describe "stmm" do
+  describe "sing_together_miracle_magic" do
     let(:query_string) do
       <<QUERYSTRING
 {
-  movie(movieName: "stmm")
+  movie(movieName: "sing_together_miracle_magic")
   {
     name
     title
@@ -36,68 +36,21 @@ RSpec.describe Types::MovieType do
 QUERYSTRING
     end
 
-    let(:girls) { %w[
-      cure_black
-      cure_white
-      shiny_luminous
-      cure_bloom
-      cure_egret
-      cure_dream
-      cure_rouge
-      cure_lemonade
-      cure_mint
-      cure_aqua
-      milky_rose
-      cure_peach
-      cure_berry
-      cure_pine
-      cure_passion
-      cure_blossom
-      cure_marine
-      cure_sunshine
-      cure_moonlight
-      cure_melody
-      cure_rhythm
-      cure_beat
-      cure_muse
-      cure_happy
-      cure_sunny
-      cure_peace
-      cure_march
-      cure_beauty
-      cure_heart
-      cure_diamond
-      cure_rosetta
-      cure_sword
-      cure_ace
-      cure_lovely
-      cure_princess
-      cure_honey
-      cure_fortune
-      cure_flora
-      cure_mermaid
-      cure_twinkle
-      cure_scarlet
-      cure_miracle
-      cure_magical
-      cure_echo
-      ] }
-
     context "has name and it" do
       it { expect(result["data"]["movie"]["name"]).to eq "stmm" }
     end
 
     context "has title and it" do
-      it { expect(result["data"]["movie"]["title"]).to eq "映画 プリキュアオールスターズ みんなで歌う 奇跡の魔法！" }
+      it { expect(result["data"]["movie"]["title"]).to eq Rubicure::Movie.find(:stmm).title }
     end
 
     context "has startedDate and it" do
-      it { expect(result["data"]["movie"]["startedDate"]).to eq "2016-03-19" }
+      it { expect(result["data"]["movie"]["startedDate"]).to eq "#{Rubicure::Movie.find(:stmm).started_date}" }
     end
 
     context "has girls and it" do
-      it { expect(result["data"]["movie"]["girls"].count).to eq 44 }
-      it { expect(result["data"]["movie"]["girls"].map{|e| e["girlName"]}).to eq girls }
+      it { expect(result["data"]["movie"]["girls"].count).to eq Precure.all_stars(:stmm).count }
+      it { expect(result["data"]["movie"]["girls"].map{|e| e["girlName"]}).to eq Precure.all_stars(:stmm).map(&:girl_name) }
     end
   end
 end
