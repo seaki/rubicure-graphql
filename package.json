@@ -1,5 +1,8 @@
 {
   "name": "rubicure-graphql",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "engines": {
+    "yarn": "1.x"
+  }
 }
