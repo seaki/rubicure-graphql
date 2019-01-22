@@ -22,6 +22,14 @@ $ docker-compose run --rm app bundle install
 $ docker-compose up -d
 ```
 
+You have to set environment values if running in production env.
+
+```
+RAILS_ENV=production
+SECRET_KEY_BASE=(generate with `docker-compose run --rm app rails secret`)
+RAILS_SERVE_STATIC_FILES=true (or enabled)
+```
+
 ### Deploy to heroku
 
 With Heroku CLI
@@ -34,10 +42,17 @@ $ git push heroku master
 
 ## How to use
 
-Call from your GraphQL client. For your convenient, this app including rails-graphiql, access http(s)://(hostname):(port)/graphiql to try API in GraphiQL.
+Call from your GraphQL client. For your convenience, this app includes rails-graphiql, access http(s)://(hostname):(port)/graphiql to try API in GraphiQL.
 
 ## You can try Rubicure-graphql in GraphiQL
+
+In Heroku
+
 [https://rubicure-graphql.herokuapp.com/graphiql](https://rubicure-graphql.herokuapp.com/graphiql)
+
+or AWS (Elastic Beanstalk)
+
+[https://rubicure-graphql.aws.sastudio.jp/graphiql](https://rubicure-graphql.aws.sastudio.jp/graphiql)
 
 ## How to test with head (or another) version of Rubicure gem
 
