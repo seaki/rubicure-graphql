@@ -10,8 +10,11 @@ class GraphqlController < ApplicationController
     result = RubicureGraphqlSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
   rescue => e
-    raise e unless Rails.env.development?
-    handle_error_in_development e
+    if Rails.env.development?
+      handle_error_in_development e
+      return
+    end
+    handle_error_in_production e
   end
 
   private
@@ -39,5 +42,9 @@ class GraphqlController < ApplicationController
     logger.error e.backtrace.join("\n")
 
     render json: { error: { message: e.message, backtrace: e.backtrace }, data: {} }, status: 500
+  end
+
+  def handle_error_in_production(e)
+    render json: { error: { message: e.message }, data: {} }, status: 500
   end
 end
