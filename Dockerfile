@@ -22,6 +22,7 @@ RUN yarn install
 RUN apk del build-dependencies
 
 ADD . ${APP_ROOT}
+RUN rails assets:precompile
 
 EXPOSE 3000
 CMD ["rails", "server", "-b", "0.0.0.0"]
