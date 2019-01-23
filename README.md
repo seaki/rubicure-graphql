@@ -40,6 +40,17 @@ $ heroku create
 $ git push heroku master
 ```
 
+### Deploy to Elastic Beanstalk
+
+With EB CLI (using mini/eb-cli Docker image)
+If you have EB CLI natively, feel free to use native EB CLI.
+
+```
+$ docker run --rm -it -v $HOME/.aws/:/home/aws/.aws -v $PWD:/data mini/eb-cli init
+  ( answer some questions )
+$ docker run --rm -it -v $HOME/.aws/:/home/aws/.aws -v $PWD:/data mini/eb-cli deploy
+```
+
 ## How to use
 
 Call from your GraphQL client. For your convenience, this app includes rails-graphiql, access http(s)://(hostname):(port)/graphiql to try API in GraphiQL.
