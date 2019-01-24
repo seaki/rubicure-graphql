@@ -51,6 +51,15 @@ $ docker run --rm -it -v $HOME/.aws/:/home/aws/.aws -v $PWD:/data mini/eb-cli in
 $ docker run --rm -it -v $HOME/.aws/:/home/aws/.aws -v $PWD:/data mini/eb-cli deploy
 ```
 
+You have to set environment values if running in production env.
+
+```
+RAILS_ENV=production
+RAILS_SERVE_STATIC_FILES=true (or enabled)
+RAILS_SKIP_MIGRATIONS=true
+SECRET_KEY_BASE=(generate with `rails secret` in your ruby env)
+```
+
 ## How to use
 
 Call from your GraphQL client. For your convenience, this app includes rails-graphiql, access http(s)://(hostname):(port)/graphiql to try API in GraphiQL.
@@ -69,7 +78,7 @@ or AWS (Elastic Beanstalk)
 
 1. Clone this repo
 2. Checkout "testing_new_precure" branch
-3. Fix "Dockerfile" ( branch name, upstream repo )
+3. Fix "Gemfile" ( branch name, upstream repo )
 4. Build your Docker image ( docker-compose build [--no-cache] )
 5. Launch the development server ( docker-compose up )
 
