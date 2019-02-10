@@ -18,7 +18,7 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 ```
 $ docker-compose build
-$ docker-compose run --rm app bundle install
+$ docker-compose run --rm web bundle install
 $ docker-compose up -d
 ```
 
