@@ -77,10 +77,16 @@ or AWS (Elastic Beanstalk)
 ## How to test with head (or another) version of Rubicure gem
 
 1. Clone this repo
-2. Checkout "testing_new_precure" branch
-3. Fix "Gemfile" ( branch name, upstream repo )
-4. Build your Docker image ( docker-compose build [--no-cache] )
-5. Launch the development server ( docker-compose up )
+2. Build your Docker image first ( docker-compose build [--no-cache] )
+3. Checkout "testing_new_precure" branch
+4. Fix "Gemfile" ( branch name, upstream repo )
+5. Update "Gemfile.lock" by follwing commands:
+```
+$ docker-compose run --rm web bundle update rubicure
+$ docker-compose run --rm web bundle install
+```
+6. Rebuild your Docker image ( docker-compose build )
+7. Launch the development server ( docker-compose up )
 
 ## How to contribute
 
