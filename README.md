@@ -72,7 +72,7 @@ In Heroku
 
 or AWS (Elastic Beanstalk)
 
-[https://rubicure-graphql.aws.sastudio.jp/graphiql](https://rubicure-graphql.aws.sastudio.jp/graphiql)
+[https://rubicure-graphql.aws.sastudio.jp/graphiql]() (Deprecated)
 
 ## How to test with head (or another) version of Rubicure gem
 
