@@ -8,6 +8,9 @@ module Types
       Rubicure::Movie.config.key(object)
     end
     def girls
+      return Precure.dream_stars if (name == :dream_stars)
+      return Precure.super_stars if (name == :super_stars)
+      return Precure.miracle_universe if (name == :miracle_universe)
       Precure.all_stars(Rubicure::Movie.config.key(object))
     end
   end
