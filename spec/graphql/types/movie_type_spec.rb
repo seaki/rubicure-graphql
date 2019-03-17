@@ -53,4 +53,40 @@ QUERYSTRING
       it { expect(result["data"]["movie"]["girls"].map{|e| e["girlName"]}).to eq Precure.all_stars(:stmm).map(&:girl_name) }
     end
   end
+
+  describe "miracle_universe" do
+    let(:query_string) do
+      <<QUERYSTRING
+{
+  movie(movieName: "miracle_universe")
+  {
+    name
+    title
+    startedDate
+    girls
+    {
+      girlName
+    }
+  }
+}
+QUERYSTRING
+    end
+
+    context "has name and it" do
+      it { expect(result["data"]["movie"]["name"]).to eq "miracle_universe" }
+    end
+
+    context "has title and it" do
+      it { expect(result["data"]["movie"]["title"]).to eq Rubicure::Movie.find(:miracle_universe).title }
+    end
+
+    context "has startedDate and it" do
+      it { expect(result["data"]["movie"]["startedDate"]).to eq "#{Rubicure::Movie.find(:miracle_universe).started_date}" }
+    end
+
+    context "has girls and it" do
+      it { expect(result["data"]["movie"]["girls"].count).to eq Precure.miracle_universe.count }
+      it { expect(result["data"]["movie"]["girls"].map{|e| e["girlName"]}).to eq Precure.miracle_universe.map(&:girl_name) }
+    end
+  end
 end
