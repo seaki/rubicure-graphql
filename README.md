@@ -10,7 +10,7 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 ## Dependencies
 
-* rubicure >= 1.1.7
+* rubicure >= 1.2.0
 
 ## How to deploy
 
