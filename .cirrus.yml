@@ -1,0 +1,5 @@
+container:
+  dockerfile: Dockerfile
+
+rspec_task:
+  script: rspec
