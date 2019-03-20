@@ -1,3 +1,9 @@
+container:
+  image: ruby:2.5.4
+
 rspec_task:
-  container:
-    dockerfile: ci/Dockerfile
+  bundle_cache:
+    folder: /usr/local/bundle
+    fingerprint_script: echo $RUBY_VERSION && cat Gemfile.lock
+    populate_script: bundle install
+  rspec_script: bundle exec rspec
