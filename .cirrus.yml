@@ -1,3 +1,13 @@
 rspec_task:
   container:
     dockerfile: ci/Dockerfile
+  bundle_cache:
+    folder: /usr/local/bundle
+    fingerprint_script: echo $RUBY_VERSION && cat Gemfile.lock
+    populate_script: bundle install
+  node_modules_cache:
+    folder: node_modules
+    fingerprint_script: cat yarn.lock
+    populate_script: yarn install
+  precompile_script: rails assets:precompile
+  rspec_script: rspec
