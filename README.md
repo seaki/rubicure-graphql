@@ -8,8 +8,6 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 * rails >= 5.2.2
 
-## Dependencies
-
 * rubicure >= 1.2.0
 
 ## How to deploy
