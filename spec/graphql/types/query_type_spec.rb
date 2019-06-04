@@ -90,4 +90,18 @@ QUERYSTRING
       it { expect(result["data"]["precureAll"]).to eq result["data"]["precureAllGirls"] }
     end
   end
+
+  describe "version" do
+    let(:query_string) do
+      <<QUERYSTRING
+{
+  version
+}
+QUERYSTRING
+    end
+
+    context "version" do
+      it { expect(result["data"]["version"]).to eq Rails.configuration.x.version }
+    end
+  end
 end

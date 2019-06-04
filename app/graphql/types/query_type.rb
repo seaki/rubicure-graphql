@@ -89,5 +89,10 @@ module Types
     def color(color:)
       return color.intern if Rubicure::Girl.colors.include?(color.intern)
     end
+
+    field :version, String, null: false
+    def version
+      Rails.configuration.x.version
+    end
   end
 end
