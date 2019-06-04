@@ -144,11 +144,11 @@ QUERYSTRING
     end
 
     context "has heisei and it" do
-      it { expect(result["data"]["cureMiracle"]["heisei"]).to eq Cure.miracle.heisei? }
+      it { expect(result["data"]["cureMiracle"]["heisei"]).to eq Cure.miracle.heisei?.to_s }
     end
 
     context "has reiwa and it" do
-      it { expect(result["data"]["cureMiracle"]["reiwa"]).to eq Cure.miracle.reiwa? }
+      it { expect(result["data"]["cureMiracle"]["reiwa"]).to eq Cure.miracle.reiwa?.to_s }
     end
   end
 
