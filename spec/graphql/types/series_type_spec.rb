@@ -32,6 +32,8 @@ RSpec.describe Types::SeriesType do
     {
       girlName
     }
+    heisei
+    reiwa
   }
 }
 QUERYSTRING
@@ -59,6 +61,14 @@ QUERYSTRING
 
     context "has girls and it" do
       it { expect(result["data"]["series"]["girls"].map{|e| e["girlName"]}).to eq Precure.maho_girls.girls.map(&:girl_name) }
+    end
+
+    context "has heisei and it" do
+      it { expect(result["data"]["series"]["heisei"]).to eq Precure.maho_girls.heisei?.to_s }
+    end
+
+    context "has reiwa and it" do
+      it { expect(result["data"]["series"]["reiwa"]).to eq Precure.maho_girls.reiwa?.to_s }
     end
   end
 end
