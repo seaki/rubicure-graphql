@@ -17,6 +17,8 @@ module Types
     field :full_name, String, null: false, description: "Precure's name before transformation(full name or human name)"
     field :transform_styles, [String], null: true, description: "Transform styles(if present)"
     field :pikarin_janken, String, null: true, description: "Pikarin janken(if girl is CurePeace)"
+    field :heisei, String, null: true, description: "Precure's first appearance is in Heisei era"
+    field :reiwa, String, null: true, description: "Precure's first appearance is in Reiwa era"
 
     def girl_name
       object.girl_name
@@ -113,6 +115,14 @@ JANKEN
       return nil unless object.respond_to?(:pikarin_janken)
       # ここも再利用しづらい形で定義されているので、オリジナルの rubicure から持ってくる
       MESSAGE % HANDS.sample
+    end
+
+    def heisei
+      object.heisei?
+    end
+
+    def reiwa
+      object.reiwa?
     end
   end
 end
