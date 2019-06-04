@@ -3,6 +3,21 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.6] - 2019-06-05
+
+### Introduced APIs
+
+- Girl.heisei
+- Girl.reiwa
+- Series.heisei
+- Series.reiwa
+- version
+
+### Other improvements and fixes
+
+- Update rubicure to 1.2.1
+- Update ruby to 2.6.3
+
 ## [0.9.5] - 2019-03-21
 
 - Fix Cirrus CI config ([fkorotkov](https://github.com/seaki/rubicure-graphql/pull/37))
