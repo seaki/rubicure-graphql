@@ -50,6 +50,8 @@ query {
     fullName
     transformStyles
     pikarinJanken
+    heisei
+    reiwa
   }
 }
 QUERYSTRING
@@ -139,6 +141,14 @@ QUERYSTRING
 
     context "has pikarinJanken and it" do
       it { expect(result["data"]["cureMiracle"]["pikarinJanken"]).to be_nil }
+    end
+
+    context "has heisei and it" do
+      it { expect(result["data"]["cureMiracle"]["heisei"]).to eq Cure.miracle.heisei? }
+    end
+
+    context "has reiwa and it" do
+      it { expect(result["data"]["cureMiracle"]["reiwa"]).to eq Cure.miracle.reiwa? }
     end
   end
 
