@@ -80,7 +80,7 @@ or AWS (Elastic Beanstalk)
 4. Fix "Gemfile" ( branch name, upstream repo )
 5. Update "Gemfile.lock" by following commands:
 ```
-$ docker-compose run --rm web bundle update rubicure
+$ docker-compose run --rm web bundle update --conservative rubicure
 $ docker-compose run --rm web bundle install
 ```
 6. Rebuild your Docker image ( docker-compose build )
