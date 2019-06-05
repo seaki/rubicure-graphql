@@ -78,7 +78,7 @@ or AWS (Elastic Beanstalk)
 2. Build your Docker image first ( docker-compose build [--no-cache] )
 3. Checkout "testing_new_precure" branch
 4. Fix "Gemfile" ( branch name, upstream repo )
-5. Update "Gemfile.lock" by follwing commands:
+5. Update "Gemfile.lock" by following commands:
 ```
 $ docker-compose run --rm web bundle update rubicure
 $ docker-compose run --rm web bundle install
