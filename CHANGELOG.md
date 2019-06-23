@@ -3,6 +3,11 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.7] - 2019-06-23
+
+- Disable CSRF protection when request.format is JSON ([#50](https://github.com/seaki/rubicure-graphql/pull/50))
+- Update rubicure to 1.2.3
+
 ## [0.9.6] - 2019-06-05
 
 ### Introduced APIs
