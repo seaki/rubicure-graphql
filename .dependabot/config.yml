@@ -1,0 +1,36 @@
+version: 1
+update_configs:
+  - package_manager: "ruby:bundler"
+    directory: "/"
+    update_schedule: "live"
+    allowed_updates:
+    - match:
+        update_type: "all"
+    version_requirement_updates: "off"
+  - package_manager: "docker"
+    directory: "/"
+    update_schedule: "daily"
+  - package_manager: "docker"
+    directory: "/ci/ruby2.3/"
+    update_schedule: "daily"
+    ignored_updates:
+      - match:
+          dependency_name: "ruby"
+          version_requirement: ">= 2.4"
+  - package_manager: "docker"
+    directory: "/ci/ruby2.4/"
+    update_schedule: "daily"
+    ignored_updates:
+      - match:
+          dependency_name: "ruby"
+          version_requirement: ">= 2.5"
+  - package_manager: "docker"
+    directory: "/ci/ruby2.5/"
+    update_schedule: "daily"
+    ignored_updates:
+      - match:
+          dependency_name: "ruby"
+          version_requirement: ">= 2.6"
+  - package_manager: "docker"
+    directory: "/ci/ruby2.6/"
+    update_schedule: "daily"
