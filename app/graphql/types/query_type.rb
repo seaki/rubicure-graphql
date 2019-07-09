@@ -42,7 +42,7 @@ module Types
       argument :series_name, String, required: true, description: "Series symbol"
     end
     def series(series_name:)
-      Rubicure::Series.find(series_name.intern)
+      Precure.send(series_name)
     end
 
     field :precure_all_stars, [Types::GirlType], null: false, description: "Get Precure All Stars" do
