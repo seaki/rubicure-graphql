@@ -90,6 +90,16 @@ module Types
       return color.intern if Rubicure::Girl.colors.include?(color.intern)
     end
 
+    field :now, Types::SeriesType, null: false, description: "Get now on air series"
+    def now
+      Precure.now
+    end
+
+    field :current, Types::SeriesType, null: false, description: "Get now on air series"
+    def current
+      Precure.current
+    end
+
     field :version, String, null: false
     def version
       Rails.configuration.x.version
