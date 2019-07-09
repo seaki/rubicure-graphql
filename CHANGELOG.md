@@ -3,6 +3,22 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.9] - 2019-07-09
+
+### Introduced APIs
+
+- now
+- current
+
+### Updated APIs
+
+- series(seriesName: "") : accepts now, current
+
+### Other improvements and fixes
+
+- Disable GraphiQL by default ([#73](https://github.com/seaki/rubicure-graphql/pull/73))
+- Update bundled gems
+
 ## [0.9.8] - 2019-06-30
 
 - Update rubicure to 1.2.4
