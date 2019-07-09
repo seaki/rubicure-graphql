@@ -91,6 +91,69 @@ QUERYSTRING
     end
   end
 
+  describe "current series" do
+    let(:query_string) do
+      <<QUERYSTRING
+{
+  now
+  {
+    seriesName
+  }
+  current
+  {
+    seriesName
+  }
+}
+QUERYSTRING
+    end
+
+    context "now" do
+      it "returns current series" do
+        expect(result["data"]["now"]["seriesName"]).to eq Precure.now.series_name
+      end
+    end
+
+    context "current" do
+      it "returns current series" do
+        expect(result["data"]["current"]["seriesName"]).to eq Precure.now.series_name
+      end
+    end
+  end
+
+  describe "series(seriesName: now)" do
+    let(:query_string) do
+      <<QUERYSTRING
+{
+  series(seriesName: "now")
+  {
+    seriesName
+  }
+}
+QUERYSTRING
+    end
+
+    it "returns current series" do
+      expect(result["data"]["series"]["seriesName"]).to eq Precure.now.series_name
+    end
+  end
+
+  describe "series(seriesName: current)" do
+    let(:query_string) do
+      <<QUERYSTRING
+{
+  series(seriesName: "current")
+  {
+    seriesName
+  }
+}
+QUERYSTRING
+    end
+
+    it "returns current series" do
+      expect(result["data"]["series"]["seriesName"]).to eq Precure.now.series_name
+    end
+  end
+
   describe "version" do
     let(:query_string) do
       <<QUERYSTRING
