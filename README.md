@@ -60,7 +60,7 @@ SECRET_KEY_BASE=(generate with `rails secret` in your ruby env)
 
 ## How to use
 
-Call from your GraphQL client. For your convenience, this app includes rails-graphiql, access http(s)://(hostname):(port)/graphiql to try API in GraphiQL.
+Call from your GraphQL client. This app includes rails-graphiql, but disabled by default. Set ENABLE_GRAPHIQL environment value (any values are accepted), and then access http(s)://(hostname):(port)/graphiql to try API in GraphiQL.
 
 ## You can try Rubicure-graphql in GraphiQL
 
