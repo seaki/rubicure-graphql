@@ -337,4 +337,21 @@ QUERYSTRING
       it { expect(result["data"]["girl"]).to eq result["data"]["cureMiracle"] }
     end
   end
+
+  describe "cureCosmo" do
+    let(:query_string) do
+      <<QUERYSTRING
+query {
+  cureCosmo
+  {
+    extraNames
+  }
+}
+QUERYSTRING
+    end
+
+    context "has extraNames and it" do
+      it { expect(result["data"]["cureCosmo"]["extraNames"]).to eq %w[マオ ブルーキャット バケニャーン] }
+    end
+  end
 end
