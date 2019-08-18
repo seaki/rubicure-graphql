@@ -73,6 +73,7 @@ module Types
     end
 
     def extra_names
+      return %w[マオ ブルーキャット バケニャーン] if object.girl_name == "cure_cosmo"
       return object.extra_names if object.extra_names.is_a?(Array)
     end
 
