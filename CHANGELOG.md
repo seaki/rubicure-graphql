@@ -3,6 +3,11 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.10] - 2019-08-18
+
+- Impl. cureCosmo.extraNames
+- Update rubicure to 1.2.5
+
 ## [0.9.9] - 2019-07-09
 
 ### Introduced APIs
