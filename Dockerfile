@@ -14,6 +14,7 @@ apk upgrade && \
 apk add --update --no-cache --virtual=build-dependencies build-base sqlite-dev npm gmp-dev && \
 apk add --update --no-cache nodejs sqlite-libs tzdata && \
 npm -g install yarn && \
+bundle config force_ruby_platform true && \
 bundle install -j4 && \
 yarn install && \
 apk del build-dependencies
