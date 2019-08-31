@@ -1,4 +1,4 @@
-FROM ruby:2.5.5-alpine3.10
+FROM ruby:2.5.6-alpine3.10
 
 ENV LANG C.UTF-8
 
