@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '>= 2.5.0'
 
 gem 'graphiql-rails'
-gem 'rubicure'
+gem 'rubicure', github: 'seaki/rubicure', branch: "feature/wonderful_precure"
 
 # nokogiri >= 1.14.0 only supports ruby >= 2.7.0
 gem 'nokogiri', '< 1.14'
