@@ -5,7 +5,7 @@ ruby '>= 2.5.0'
 
 gem 'graphql'
 gem 'graphiql-rails'
-gem 'rubicure'
+gem 'rubicure', github: 'seaki/rubicure', branch: "fix/created_date_was_string"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3'
