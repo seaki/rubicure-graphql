@@ -46,7 +46,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    builder (3.2.3)
+    builder (3.2.4)
     byebug (11.0.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
