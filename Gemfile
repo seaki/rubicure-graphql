@@ -7,6 +7,11 @@ gem 'graphql'
 gem 'graphiql-rails'
 gem 'rubicure'
 
+# sprockets v4.0.0+ requires Ruby 2.5.0+
+# TODO: Remove after rubicure finishes support for Ruby < 2.5
+#       or rails finishes support version <= 5.2.1.x
+gem 'sprockets', '< 4.0.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use Puma as the app server
