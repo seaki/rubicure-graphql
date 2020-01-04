@@ -13,6 +13,7 @@ RUN apk update && \
 apk upgrade && \
 apk add --update --no-cache --virtual=build-dependencies build-base sqlite-dev npm gmp-dev && \
 apk add --update --no-cache nodejs sqlite-libs tzdata && \
+gem install bundler -v 2.1.3 && \
 npm -g install yarn && \
 bundle config force_ruby_platform true && \
 bundle install -j4 && \
@@ -20,7 +21,7 @@ yarn install && \
 apk del build-dependencies
 
 ADD . ${APP_ROOT}
-RUN rails assets:precompile
+RUN bin/rails assets:precompile
 
 EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bin/rails", "server", "-b", "0.0.0.0"]

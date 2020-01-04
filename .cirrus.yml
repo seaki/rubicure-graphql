@@ -13,5 +13,5 @@ rspec_task:
     folder: node_modules
     fingerprint_script: cat yarn.lock
     populate_script: yarn install
-  precompile_script: rails assets:precompile
-  rspec_script: rspec
+  precompile_script: bin/rails assets:precompile
+  rspec_script: bundle exec rspec
