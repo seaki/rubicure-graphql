@@ -34,3 +34,7 @@ update_configs:
   - package_manager: "docker"
     directory: "/ci/ruby2.6/"
     update_schedule: "daily"
+    ignored_updates:
+      - match:
+          dependency_name: "ruby"
+          version_requirement: ">= 2.7"
