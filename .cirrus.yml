@@ -5,6 +5,7 @@ rspec_task:
       dockerfile: ci/ruby2.4/Dockerfile
       dockerfile: ci/ruby2.5/Dockerfile
       dockerfile: ci/ruby2.6/Dockerfile
+      dockerfile: ci/ruby2.7/Dockerfile
   bundle_cache:
     folder: /usr/local/bundle
     fingerprint_script: echo $RUBY_VERSION && cat Gemfile.lock
