@@ -38,3 +38,6 @@ update_configs:
       - match:
           dependency_name: "ruby"
           version_requirement: ">= 2.7"
+  - package_manager: "docker"
+    directory: "/ci/ruby2.7/"
+    update_schedule: "daily"
