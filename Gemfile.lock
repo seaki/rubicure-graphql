@@ -68,7 +68,7 @@ GEM
       sprockets-rails
     graphql (1.9.17)
     hashie (4.0.0)
-    i18n (1.8.1)
+    i18n (1.8.2)
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
