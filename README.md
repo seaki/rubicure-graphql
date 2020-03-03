@@ -10,6 +10,20 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 * rubicure >= 1.2.1
 
+## How to hack
+
+### Using docker-compose and mutagen.io
+
+* Install mutagen.io
+```
+$ brew install mutagen-io/mutagen/mutagen
+```
+* Copy docker-compose.override.yml from docker-compose.override.yml.example
+
+* `docker-compose build`
+
+* `mutagen project start`
+
 ## How to deploy
 
 ### Using docker-compose
@@ -60,7 +74,7 @@ SECRET_KEY_BASE=(generate with `rails secret` in your ruby env)
 
 ## How to use
 
-Call from your GraphQL client. This app includes rails-graphiql, but disabled by default. Set ENABLE_GRAPHIQL environment value (any values expect empty are accepted), and then restart app and access http(s)://(hostname):(port)/graphiql to try API in GraphiQL.
+Call from your GraphQL client. This app includes rails-graphiql, but disabled by default. Set ENABLE_GRAPHIQL environment variable to any value except empty, and then restart app and access http(s)://(hostname):(port)/graphiql to try API in GraphiQL.
 
 ## You can try Rubicure-graphql in GraphiQL
 
