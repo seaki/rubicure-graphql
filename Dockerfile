@@ -24,4 +24,4 @@ ADD . ${APP_ROOT}
 RUN bin/rails assets:precompile
 
 EXPOSE 3000
-CMD ["bin/rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
