@@ -7,7 +7,11 @@ beforeCreate:
 afterCreate:
   - docker-compose up --detach web
 
-# Tear down all services and remove the code volume after terminating sessions.
+# Stop service to prevent from 'tmp/pids/server.pid' remaining before terminating sessions.
+beforeTerminate:
+  - docker-compose stop web
+
+# Tear down all services after terminating sessions.
 afterTerminate:
   - docker-compose rm --stop --force
 
