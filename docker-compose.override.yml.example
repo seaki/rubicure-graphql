@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mutagen:
+    image: alpine:latest
+    entrypoint:
+      - tail
+      - -f
+      - /dev/null
+    container_name: rubicure-graphql-mutagen
+    stop_grace_period: 0s
+    volumes:
+      - code:/code
+  web:
+    volumes:
+      - code:/usr/src/rubicure-graphql
+
+# Create a volume to store and share synchronized code.
+volumes:
+  code:
