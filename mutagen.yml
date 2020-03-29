@@ -13,7 +13,7 @@ beforeTerminate:
 
 # Tear down all services after terminating sessions.
 afterTerminate:
-  - docker-compose rm --stop --force
+  - docker-compose down --volumes
 
 # Define common utility commands.
 commands:
