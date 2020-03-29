@@ -3,6 +3,11 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.2.0] - 2020-03-29
+
+- Update rubicure gem to 1.3.2
+- Add sample file using mutagen.io
+
 ## [1.3.1.0] - 2020-02-23
 
 - Update rubicure gem to 1.3.1
