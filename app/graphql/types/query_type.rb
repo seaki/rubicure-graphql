@@ -63,6 +63,11 @@ module Types
       Precure.super_stars
     end
 
+    field :precure_miracle_leap, [Types::GirlType], null: false, description: "Get Precure seen in 'Precure Miracle Leap'"
+    def precure_miracle_leap
+      Precure.miracle_leap
+    end
+
     field :precure_all_girls, [Types::GirlType], null: false, description: "Get all Precure"
     def precure_all_girls
       precure_all

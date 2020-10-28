@@ -46,6 +46,10 @@ RSpec.describe Types::QueryType do
   {
     girlName
   }
+  precureMiracleLeap
+  {
+    girlName
+  }
   precureAllGirls
   {
     girlName
@@ -80,6 +84,10 @@ QUERYSTRING
 
     context "precureSuperStars" do
       it { expect(result["data"]["precureSuperStars"].count).to eq Precure.super_stars.count }
+    end
+
+    context "precureMiracleLeap" do
+      it { expect(result["data"]["precureMiracleLeap"].count).to eq Precure.miracle_leap.count }
     end
 
     context "precureAllGirls" do
