@@ -11,6 +11,7 @@ module Types
       return Precure.dream_stars if (name == :dream_stars)
       return Precure.super_stars if (name == :super_stars)
       return Precure.miracle_universe if (name == :miracle_universe)
+      return Precure.miracle_leap if (name == :miracle_leap)
       Precure.all_stars(Rubicure::Movie.config.key(object))
     end
   end
