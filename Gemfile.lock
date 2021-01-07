@@ -215,7 +215,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   listen
   puma (~> 3.11)
-  rails (= 6.0.3.4)
+  rails (~> 6.0.3)
   rspec-rails
   rubicure
   sassc-rails
