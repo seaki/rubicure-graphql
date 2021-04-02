@@ -12,21 +12,40 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 ## How to hack
 
-### Using docker-compose and mutagen.io
+### Using docker without mutagen integration
 
-* Install mutagen.io
-```
-$ brew install mutagen-io/mutagen/mutagen
-```
-* Copy docker-compose.override.yml from docker-compose.override.yml.example
+* Install Docker.
 
-* `docker-compose build`
+* Build a image. `docker-compose build`
 
-* `mutagen project start`
+* Run that image. `docker-compose up -d`
+
+* Stop server with this: `docker-compose down`
+
+### Using docker with mutagen integration
+
+#### Install mutagen.io beta
+For macOS with Homebrew, run this command.
+
+`$ brew install mutagen-io/mutagen/mutagen-beta`
+
+For Windows, download assets from mutagen release page, extract it and set the PATH.
+
+#### Running rubicure-graphql with mutagen.io
+
+* `mutagen compose -f mutagen-compose.yml build`
+
+* `mutagen compose -f mutagen-compose.yml up -d`
+
+#### Stopping rubicure-graphql with mutagen.io
+
+* `mutagen compose -f mutagen-compose.yml down`
 
 ## How to deploy
 
-### Using docker-compose
+### Running on-preises with Docker and Docker Compose
+
+Run these commands.
 
 ```
 $ docker-compose build
@@ -34,7 +53,7 @@ $ docker-compose run --rm web bundle install
 $ docker-compose up -d
 ```
 
-You have to set environment values if running in production env.
+You have to set environment values if you wish to run in production env. It disables built-in GraphiQL frontend.
 
 ```
 RAILS_ENV=production
@@ -78,19 +97,15 @@ Call from your GraphQL client. This app includes rails-graphiql, but disabled by
 
 ## You can try Rubicure-graphql in GraphiQL
 
-In Heroku
+Heroku
 
 [https://rubicure-graphql.herokuapp.com/graphiql](https://rubicure-graphql.herokuapp.com/graphiql)
-
-or AWS (Elastic Beanstalk)
-
-[https://rubicure-graphql.aws.sastudio.jp/graphiql](#you-can-try-rubicure-graphql-in-graphiql) (Deprecated)
 
 ## How to test with head (or another) version of Rubicure gem
 
 1. Clone this repo
-2. Build your Docker image first ( docker-compose build [--no-cache] )
-3. Checkout "testing_new_precure" branch
+2. Checkout "testing_new_precure" branch
+3. Build your Docker image first ( docker-compose build [--no-cache] )
 4. Fix "Gemfile" ( branch name, upstream repo )
 5. Update "Gemfile.lock" by following commands:
 ```
