@@ -1,0 +1,32 @@
+version: '3'
+services:
+  web:
+    build: .
+    tty: true
+    stdin_open: true
+    ports:
+      - '3000:3000'
+    volumes:
+      - code:/usr/src/rubicure-graphql
+
+# Create a volume to store and share synchronized code.
+volumes:
+  code:
+
+x-mutagen:
+  sync:
+    defaults:
+      ignore:
+        vcs: true
+    code:
+      alpha: "."
+      beta: "volume://code"
+      mode: "two-way-resolved"
+      ignore:
+        paths:
+          - "./storage"
+          - "./tmp"
+      configurationBeta:
+        permissions:
+          defaultFileMode: 0666
+          defaultDirectoryMode: 0777
