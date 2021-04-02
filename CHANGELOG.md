@@ -3,6 +3,10 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0.0] - 2021-03-28
+
+* Update rubicure gem to 2.1.0
+
 ## [2.0.1.0] - 2021-02-14
 
 * Update rubicure gem to 2.0.1
