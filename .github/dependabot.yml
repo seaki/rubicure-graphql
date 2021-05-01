@@ -1,0 +1,74 @@
+version: 2
+updates:
+- package-ecosystem: bundler
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  versioning-strategy: lockfile-only
+  ignore:
+  - dependency-name: spring
+    versions:
+    - ">= 2.1.a, < 2.2"
+  - dependency-name: nokogiri
+    versions:
+    - 1.11.3
+  - dependency-name: graphql
+    versions:
+    - 1.12.7
+  - dependency-name: mimemagic
+    versions:
+    - 0.3.10
+    - 0.3.6
+    - 0.3.7
+    - 0.3.8
+    - 0.3.9
+  - dependency-name: mini_mime
+    versions:
+    - 1.0.3
+  - dependency-name: rspec-rails
+    versions:
+    - 4.1.1
+  - dependency-name: nio4r
+    versions:
+    - 2.5.6
+  - dependency-name: rspec-support
+    versions:
+    - 3.10.2
+- package-ecosystem: docker
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: docker
+  directory: "/ci/ruby2.5"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: ruby
+    versions:
+    - ">= 2.6"
+- package-ecosystem: docker
+  directory: "/ci/ruby2.6"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: ruby
+    versions:
+    - ">= 2.7"
+- package-ecosystem: docker
+  directory: "/ci/ruby2.7"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: ruby
+    versions:
+    - ">= 2.8"
+- package-ecosystem: docker
+  directory: "/ci/ruby3.0"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
