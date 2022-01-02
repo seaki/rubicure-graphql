@@ -4,7 +4,6 @@ updates:
   directory: "/"
   schedule:
     interval: daily
-  open-pull-requests-limit: 10
   versioning-strategy: lockfile-only
   ignore:
   - dependency-name: spring
@@ -39,21 +38,10 @@ updates:
   directory: "/"
   schedule:
     interval: daily
-  open-pull-requests-limit: 10
-- package-ecosystem: docker
-  directory: "/ci/ruby2.5"
-  schedule:
-    interval: daily
-  open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: ruby
-    versions:
-    - ">= 2.6"
 - package-ecosystem: docker
   directory: "/ci/ruby2.6"
   schedule:
     interval: daily
-  open-pull-requests-limit: 10
   ignore:
   - dependency-name: ruby
     versions:
@@ -62,7 +50,6 @@ updates:
   directory: "/ci/ruby2.7"
   schedule:
     interval: daily
-  open-pull-requests-limit: 10
   ignore:
   - dependency-name: ruby
     versions:
@@ -71,4 +58,7 @@ updates:
   directory: "/ci/ruby3.0"
   schedule:
     interval: daily
-  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: ruby
+    versions:
+    - ">= 3.1"
