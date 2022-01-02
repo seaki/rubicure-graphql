@@ -13,7 +13,7 @@ ADD Gemfile.lock ${APP_ROOT}/Gemfile.lock
 RUN apk update && \
 apk upgrade && \
 apk add --update --no-cache --virtual=build-dependencies build-base sqlite-dev npm gmp-dev libxml2-dev libxslt-dev && \
-apk add --update --no-cache nodejs sqlite-libs tzdata libxml2 libxslt && \
+apk add --update --no-cache nodejs sqlite-libs tzdata libxml2 libxslt git && \
 gem install bundler -v 2.3.6 && \
 npm -g install yarn && \
 bundle config force_ruby_platform true && \
