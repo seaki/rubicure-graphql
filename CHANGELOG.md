@@ -3,6 +3,15 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.0.0] - 2022-01-02
+
+### Breaking changes :bomb:
+* Drop support for Ruby < 2.6 (#428)
+
+### Others
+* Update rubicure gem to 3.0.0 (#428)
+* Add support for Ruby 3.1 (#429)
+
 ## [2.1.4.0] - 2021-11-30
 
 * Update rubicure gem to 2.1.4 (#417)
