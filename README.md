@@ -4,11 +4,11 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 ## Requirements
 
-* ruby >= 2.5.0
+* ruby >= 2.6.0
 
 * rails >= 6.0.3
 
-* rubicure >= 2.0.0
+* rubicure >= 3.0.0
 
 ## How to hack
 
