@@ -157,10 +157,10 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.2)
-    rubicure (2.1.4)
+    rubicure (3.0.0)
       activesupport (>= 5.0.0)
       hashie (>= 2.0.5)
-      sengiri_yaml (>= 0.0.2)
+      sengiri_yaml (>= 1.0.0)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -169,7 +169,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    sengiri_yaml (0.0.4)
+    sengiri_yaml (1.0.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -201,7 +201,7 @@ GEM
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.5.1)
+    zeitwerk (2.5.3)
 
 PLATFORMS
   ruby
