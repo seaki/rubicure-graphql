@@ -40,6 +40,7 @@ query {
       transformStyle
       transformMessage
     }
+    randomTransformWords
     extraNames
     attackMessages
     {
@@ -111,6 +112,10 @@ QUERYSTRING
         expect(r_transform_messages.map{|e| e["transformStyle"]}).to \
           eq result["data"]["cureMiracle"]["transformStyles"]
       end
+    end
+
+    context "has randomTransformWords and it" do
+      it { expect(result["data"]["cureMiracle"]["randomTransformWords"]).to be_nil }
     end
 
     context "has extraNames and it" do
@@ -352,6 +357,31 @@ QUERYSTRING
 
     context "has extraNames and it" do
       it { expect(result["data"]["cureCosmo"]["extraNames"]).to eq %w[マオ ブルーキャット バケニャーン] }
+    end
+  end
+
+  describe "cureLamer" do
+    let(:query_string) do
+      <<QUERYSTRING
+query {
+  cureLamer
+  {
+    transformMessages
+    {
+      transformMessage
+    }
+    randomTransformWords
+  }
+}
+QUERYSTRING
+    end
+
+    context "has randomTransformWords and it" do
+      it { expect(result["data"]["cureLamer"]["randomTransformWords"]).to eq Cure.lamer.random_transform_words }
+    end
+
+    context "has transformMessage and it" do
+      it { expect(result["data"]["cureLamer"]["transformMessages"].map{|e| e["transformMessage"].include?("${random_transform_word}")}).to eq [false] }
     end
   end
 end
