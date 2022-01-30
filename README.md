@@ -6,9 +6,9 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 * ruby >= 2.6.0
 
-* rails >= 6.0.3
+* rails >= 6.0.4
 
-* rubicure >= 3.0.0
+* rubicure >= 3.0.1
 
 ## How to hack
 
@@ -18,7 +18,7 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 ```
 $ brew install mutagen-io/mutagen/mutagen
 ```
-* Copy docker-compose.override.yml from docker-compose.override.yml.example
+* `cp docker-compose.override.yml.example docker-compose.override.yml`
 
 * `docker-compose build`
 
