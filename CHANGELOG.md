@@ -3,6 +3,14 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.1.0] - 2022-01-30
+
+### New Features
+* Randomized Tropical-Rouge! Precure's #transform! (a.k.a. #precure_tropical_change!) transformation message (#446)
+
+### Others
+* Update rubicure gem to 3.0.1 (#449)
+
 ## [3.0.0.0] - 2022-01-02
 
 ### Breaking changes :bomb:
