@@ -19,6 +19,7 @@ module Types
     field :pikarin_janken, String, null: true, description: "Pikarin janken(if girl is CurePeace)"
     field :heisei, String, null: true, description: "Precure's first appearance is in Heisei era"
     field :reiwa, String, null: true, description: "Precure's first appearance is in Reiwa era"
+    field :random_transform_words, [String], null: true, description: "Precure's random transform messages(if present)"
 
     def girl_name
       object.girl_name
@@ -70,6 +71,10 @@ module Types
       rescue => e
         return [["default", object]]
       end
+    end
+
+    def random_transform_words
+      object.random_transform_words
     end
 
     def extra_names
