@@ -3,6 +3,10 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [3.1.4.0] - 2022-11-22
+
+* Update rubicure gem to 3.1.4 (#499)
+
 ## [3.1.3.0] - 2022-07-22
 
 * Update rubicure gem to 3.1.3 (#488)
