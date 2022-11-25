@@ -78,9 +78,14 @@ Call from your GraphQL client. This app includes rails-graphiql, but disabled by
 
 ## You can try Rubicure-graphql in GraphiQL
 
-In Heroku
+In my server
 
-[https://rubicure-graphql.herokuapp.com/graphiql](https://rubicure-graphql.herokuapp.com/graphiql)
+[https://rubicure-graphql.sastudio.jp/graphiql](https://rubicure-graphql.sastudio.jp/graphiql)
+
+or Heroku
+
+[https://rubicure-graphql.herokuapp.com/graphiql](#you-can-try-rubicure-graphql-in-graphiql)
+(Deprecated)
 
 or AWS (Elastic Beanstalk)
 
