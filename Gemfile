@@ -7,6 +7,9 @@ gem 'graphql'
 gem 'graphiql-rails'
 gem 'rubicure'
 
+# nokogiri >= 1.14.0 only supports ruby >= 2.7.0
+gem 'nokogiri', '< 1.14'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3'
 # Use Puma as the app server
