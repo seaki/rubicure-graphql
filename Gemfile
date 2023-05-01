@@ -11,7 +11,7 @@ gem 'rubicure'
 gem 'nokogiri', '< 1.14'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3'
+gem 'rails', '~> 6.1'
 # Use Puma as the app server
 gem 'puma', '~> 4'
 # Use SCSS for stylesheets
