@@ -84,7 +84,7 @@ GEM
     graphiql-rails (1.9.0)
       railties
       sprockets-rails
-    graphql (2.0.22)
+    graphql (2.0.24)
     hashie (5.0.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
