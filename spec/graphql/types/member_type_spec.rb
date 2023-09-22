@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Types::GirlType do
+RSpec.describe Types::MemberType do
   let(:context) { {} }
   let(:variables) { {} }
 
