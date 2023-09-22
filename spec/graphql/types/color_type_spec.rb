@@ -30,6 +30,10 @@ RSpec.describe Types::ColorType do
     girls {
       girlName
     }
+    members
+    {
+      memberName
+    }
   }
 }
 QUERYSTRING
@@ -42,6 +46,11 @@ QUERYSTRING
     context "has girls and it" do
       it { expect(result["data"]["color"]["girls"].count).to eq Precure.all_girls.select(&:pink?).count }
       it { expect(result["data"]["color"]["girls"].map{|e| e["girlName"]}).to eq Precure.all_girls.select(&:pink?).map(&:girl_name) }
+    end
+
+    context "has members and it" do
+      it { expect(result["data"]["color"]["members"].count).to eq Precure.all_members.select(&:pink?).count }
+      it { expect(result["data"]["color"]["members"].map{|e| e["memberName"]}).to eq Precure.all_members.select(&:pink?).map(&:girl_name) }
     end
   end
 end

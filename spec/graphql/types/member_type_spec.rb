@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Types::GirlType do
+RSpec.describe Types::MemberType do
   let(:context) { {} }
   let(:variables) { {} }
 
@@ -382,6 +382,44 @@ QUERYSTRING
 
     context "has transformMessage and it" do
       it { expect(result["data"]["cureLamer"]["transformMessages"].map{|e| e["transformMessage"].include?("${random_transform_word}")}).to eq [false] }
+    end
+  end
+
+  describe "cureWing" do
+    let(:query_string) do
+      <<QUERYSTRING
+query {
+  cureWing
+  {
+    memberName
+  }
+}
+QUERYSTRING
+    end
+
+    context "has memberName and it" do
+      it { expect(result["data"]["cureWing"]["memberName"]).to eq Cure.wing.girl_name }
+    end
+  end
+
+  describe "member(memberName: \"wing\") between cureWing" do
+    let(:query_string) do
+      <<QUERYSTRING
+query {
+  member(memberName: "wing")
+  {
+    memberName
+  }
+  cureWing
+  {
+    memberName
+  }
+}
+QUERYSTRING
+    end
+
+    context "are" do
+      it { expect(result["data"]["member"]).to eq result["data"]["cureWing"] }
     end
   end
 end
