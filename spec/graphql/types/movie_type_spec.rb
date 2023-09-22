@@ -31,6 +31,10 @@ RSpec.describe Types::MovieType do
     {
       girlName
     }
+    members
+    {
+      memberName
+    }
   }
 }
 QUERYSTRING
@@ -52,6 +56,11 @@ QUERYSTRING
       it { expect(result["data"]["movie"]["girls"].count).to eq Precure.all_stars(:stmm).count }
       it { expect(result["data"]["movie"]["girls"].map{|e| e["girlName"]}).to eq Precure.all_stars(:stmm).map(&:girl_name) }
     end
+
+    context "has members and it" do
+      it { expect(result["data"]["movie"]["members"].count).to eq Precure.all_stars(:stmm).count }
+      it { expect(result["data"]["movie"]["members"].map{|e| e["memberName"]}).to eq Precure.all_stars(:stmm).map(&:girl_name) }
+    end
   end
 
   describe "miracle_universe" do
@@ -66,6 +75,10 @@ QUERYSTRING
     girls
     {
       girlName
+    }
+    members
+    {
+      memberName
     }
   }
 }
@@ -88,6 +101,11 @@ QUERYSTRING
       it { expect(result["data"]["movie"]["girls"].count).to eq Precure.miracle_universe.count }
       it { expect(result["data"]["movie"]["girls"].map{|e| e["girlName"]}).to eq Precure.miracle_universe.map(&:girl_name) }
     end
+
+    context "has members and it" do
+      it { expect(result["data"]["movie"]["members"].count).to eq Precure.miracle_universe.count }
+      it { expect(result["data"]["movie"]["members"].map{|e| e["memberName"]}).to eq Precure.miracle_universe.map(&:girl_name) }
+    end
   end
 
   describe "miracle_leap" do
@@ -102,6 +120,10 @@ QUERYSTRING
     girls
     {
       girlName
+    }
+    members
+    {
+      memberName
     }
   }
 }
@@ -123,6 +145,11 @@ QUERYSTRING
     context "has girls and it" do
       it { expect(result["data"]["movie"]["girls"].count).to eq Precure.miracle_leap.count }
       it { expect(result["data"]["movie"]["girls"].map{|e| e["girlName"]}).to eq Precure.miracle_leap.map(&:girl_name) }
+    end
+
+    context "has members and it" do
+      it { expect(result["data"]["movie"]["members"].count).to eq Precure.miracle_leap.count }
+      it { expect(result["data"]["movie"]["members"].map{|e| e["memberName"]}).to eq Precure.miracle_leap.map(&:girl_name) }
     end
   end
 end
