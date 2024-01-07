@@ -228,7 +228,7 @@ DEPENDENCIES
   byebug
   coffee-rails
   graphiql-rails
-  graphql
+  graphql (< 2.1.2)
   jbuilder (~> 2.5)
   listen
   net-imap
