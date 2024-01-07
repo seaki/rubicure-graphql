@@ -1,4 +1,4 @@
-FROM ruby:3.1.3-alpine3.15
+FROM ruby:3.2.2-alpine3.19
 
 ENV LANG C.UTF-8
 ENV APP_ROOT /usr/src/rubicure-graphql
