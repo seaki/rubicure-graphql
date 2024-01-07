@@ -3,12 +3,14 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '>= 2.5.0'
 
-gem 'graphql'
 gem 'graphiql-rails'
 gem 'rubicure'
 
 # nokogiri >= 1.14.0 only supports ruby >= 2.7.0
 gem 'nokogiri', '< 1.14'
+
+# graphql >= 2.1.2 only supports ruby >= 2.7.0
+gem 'graphql', '< 2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1'
