@@ -8,7 +8,7 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 * rails >= 6.0.4
 
-* rubicure >= 3.0.1
+* rubicure >= 3.2.2
 
 ## How to hack
 
