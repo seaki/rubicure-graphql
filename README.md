@@ -6,39 +6,41 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 * ruby >= 2.6.0
 
-* rails >= 6.0.4
+* rails
 
-* rubicure >= 3.2.2
+* rubicure >= 3.2.2 (uses #members)
+
+* Compose V2 (when deploy into container)
 
 ## How to hack
 
-### Using docker-compose and mutagen.io
+### Using `docker compose` and mutagen.io
 
 * Install mutagen.io
 ```
 $ brew install mutagen-io/mutagen/mutagen
 ```
-* `cp docker-compose.override.yml.example docker-compose.override.yml`
+* `cp compose.override.yaml.example compose.override.yaml`
 
-* `docker-compose build`
+* `docker compose build`
 
 * `mutagen project start`
 
 ## How to deploy
 
-### Using docker-compose
+### Using `docker compose`
 
 ```
-$ docker-compose build
-$ docker-compose run --rm web bundle install
-$ docker-compose up -d
+$ docker compose build
+$ docker compose run --rm web bundle install
+$ docker compose up -d
 ```
 
 You have to set environment values if running in production env.
 
 ```
 RAILS_ENV=production
-SECRET_KEY_BASE=(generate with `docker-compose run --rm app rails secret`)
+SECRET_KEY_BASE=(generate with `docker compose run --rm app rails secret`)
 RAILS_SERVE_STATIC_FILES=true (or enabled)
 ```
 
@@ -94,16 +96,16 @@ or AWS (Elastic Beanstalk)
 ## How to test with head (or another) version of Rubicure gem
 
 1. Clone this repo
-2. Build your Docker image first ( docker-compose build [--no-cache] )
+2. Build your Docker image first ( docker compose build [--no-cache] )
 3. Checkout "testing_new_precure" branch
 4. Fix "Gemfile" ( branch name, upstream repo )
 5. Update "Gemfile.lock" by following commands:
 ```
-$ docker-compose run --rm web bundle update --conservative rubicure
-$ docker-compose run --rm web bundle install
+$ docker compose run --rm web bundle update --conservative rubicure
+$ docker compose run --rm web bundle install
 ```
-6. Rebuild your Docker image ( docker-compose build )
-7. Launch the development server ( docker-compose up )
+6. Rebuild your Docker image ( docker compose build )
+7. Launch the development server ( docker compose up )
 
 ## How to contribute
 
