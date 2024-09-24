@@ -99,6 +99,23 @@ QUERYSTRING
     end
   end
 
+  describe "precureAllStars without argument" do
+    let(:query_string) do
+      <<QUERYSTRING
+{
+  precureAllStars
+  {
+    girlName
+  }
+}
+QUERYSTRING
+    end
+
+    context "precureAllStars" do
+      it { expect(result["data"]["precureAllStars"].count).to eq Precure.all_stars.count }
+    end
+  end
+
   describe "current series" do
     let(:query_string) do
       <<QUERYSTRING

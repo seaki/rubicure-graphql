@@ -55,7 +55,7 @@ module Types
     field :precure_all_stars, [Types::MemberType], null: false, description: "Get Precure All Stars" do
       argument :series, String, required: false, description: "Prescribe which series from Precure All Stars(if absent, prescribes 'Futari wa Pretty Cure' to 'Maho Girls Precure')"
     end
-    def precure_all_stars(series:)
+    def precure_all_stars(series: nil)
       return Precure.all_stars(series.intern) if series.present?
       Precure.all_stars
     end
