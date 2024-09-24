@@ -3,6 +3,10 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [3.3.3.1] - 2024-09-24
+
+* Fix precureAllStars without argument returns error. (#636)
+
 ## [3.3.3.0] - 2024-09-18
 
 * Update rubicure gem to 3.3.3 (#625)
