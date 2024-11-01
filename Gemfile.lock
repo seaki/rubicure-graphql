@@ -60,6 +60,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
+    base64 (0.2.0)
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
@@ -79,11 +80,14 @@ GEM
     erubi (1.13.0)
     execjs (2.9.1)
     ffi (1.17.0)
+    fiber-storage (1.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     graphiql-rails (1.10.1)
       railties
-    graphql (2.1.0)
+    graphql (2.4.0)
+      base64
+      fiber-storage
     hashie (5.0.0)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
