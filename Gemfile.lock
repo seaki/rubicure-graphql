@@ -288,6 +288,7 @@ DEPENDENCIES
   rspec-rails
   rubicure
   sassc-rails
+  securerandom (< 0.4.0)
   spring
   spring-watcher-listen
   timecop
