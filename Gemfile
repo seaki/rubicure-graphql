@@ -11,7 +11,7 @@ gem 'nokogiri'
 gem 'graphql'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '=6.1.7.10'
+gem 'rails', '=7.1.5.1'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
