@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '>= 2.6.0'
+ruby '>= 2.7.0'
 
 gem 'graphiql-rails'
 gem 'rubicure'
@@ -11,7 +11,7 @@ gem 'nokogiri'
 gem 'graphql'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '=6.1.7.10'
 # Use Puma as the app server
 gem 'puma'
 # Use SCSS for stylesheets
