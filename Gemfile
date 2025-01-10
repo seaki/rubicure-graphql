@@ -10,6 +10,9 @@ gem 'nokogiri'
 
 gem 'graphql'
 
+# securerandom >=0.4.0 requires ruby version >= 3.1.0
+gem 'securerandom', '<0.4.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '=7.1.5.1'
 # Use Puma as the app server
