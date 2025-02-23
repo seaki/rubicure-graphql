@@ -3,6 +3,14 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.0.0] - 2024-09-18
+
+### Breaking changes :bomb:
+* Drop support for Ruby 2.6 (#670)
+
+### Others
+* Update rubicure gem to 4.0.0 (#674)
+
 ## [3.3.3.1] - 2024-09-24
 
 * Fix precureAllStars without argument returns error. (#636)
