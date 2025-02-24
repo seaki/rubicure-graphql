@@ -10,9 +10,4 @@ rspec_task:
     folder: /usr/local/bundle
     fingerprint_script: echo $RUBY_VERSION && cat Gemfile.lock
     populate_script: bundle config force_ruby_platform true && bundle install
-  node_modules_cache:
-    folder: node_modules
-    fingerprint_script: cat yarn.lock
-    populate_script: yarn install
-  precompile_script: bin/rails assets:precompile
   rspec_script: bundle exec rspec

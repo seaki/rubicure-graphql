@@ -105,7 +105,7 @@ QUERYSTRING
 
     context "has transformMessages and it" do
       let(:r_transform_messages) { result["data"]["cureMiracle"]["transformMessages"] }
-      it { expect(r_transform_messages.count).to eq 4 }
+      it { expect(r_transform_messages.count).to eq 5 }
       it { expect(r_transform_messages.map{|e| e["transformStyle"]}).to eq Cure.miracle.transform_styles.map{|s| s.first.to_s} }
       it { expect(r_transform_messages.map{|e| e["transformMessage"]}).to all( be_truthy ) }
       it do
@@ -124,7 +124,7 @@ QUERYSTRING
 
     context "has attackMessages and it" do
       let(:r_attack_messages) { result["data"]["cureMiracle"]["attackMessages"] }
-      it { expect(r_attack_messages.count).to eq 4 }
+      it { expect(r_attack_messages.count).to eq 5 }
       it { expect(r_attack_messages.map{|e| e["transformStyle"]}).to eq Cure.miracle.transform_styles.map{|s| s.first.to_s} }
       it { expect(r_attack_messages.map{|e| e["attackMessages"]}).to all( be_a(Array) ) }
       it do
