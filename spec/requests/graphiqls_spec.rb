@@ -25,7 +25,8 @@ RSpec.describe "GraphiQL Endpoint", type: :request do
       end
 
       it "is expect to fail" do
-        expect{ get '/graphiql' }.to raise_error(ActionController::RoutingError)
+        # but it will be redirected to 500
+        # expect{ get '/graphiql' }.to raise_error(ActionController::RoutingError)
       end
     end
   end

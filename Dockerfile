@@ -1,4 +1,4 @@
-FROM ruby:3.3.6-alpine3.19
+FROM ruby:2.7.8-alpine3.16
 
 ENV LANG=C.UTF-8
 ENV APP_ROOT=/usr/src/rubicure-graphql
@@ -12,16 +12,18 @@ ADD Gemfile.lock ${APP_ROOT}/Gemfile.lock
 
 RUN apk update && \
 apk upgrade && \
-apk add --update --no-cache --virtual=build-dependencies build-base sqlite-dev npm gmp-dev libxml2-dev libxslt-dev && \
-apk add --update --no-cache nodejs sqlite-libs tzdata libxml2 libxslt && \
-npm -g install yarn && \
-bundle config force_ruby_platform true && \
+apk add --update --no-cache --virtual=build-dependencies build-base && \
+apk add --update --no-cache tzdata && \
+# apk add --update --no-cache --virtual=build-dependencies build-base sqlite-dev npm gmp-dev libxml2-dev libxslt-dev && \
+# apk add --update --no-cache nodejs sqlite-libs tzdata libxml2 libxslt && \
+# npm -g install yarn && \
+# bundle config force_ruby_platform true && \
+gem install bundler -v 2.4.22 && \
 bundle install -j4 && \
-yarn install && \
+# yarn install && \
 apk del build-dependencies
 
 ADD . ${APP_ROOT}
-RUN bin/rails assets:precompile
 
 EXPOSE 3000
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
