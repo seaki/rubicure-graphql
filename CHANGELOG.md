@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 ## [4.0.2.0] - 2025-02-25
 
 * Update rubicure gem to 4.0.2 (#685)
-* Completely upgrade rails to 7.1 (#685)
+* Completely upgrade Rails 7.1 (#685)
 * Add support for Ruby 3.4 (#687)
 
 ## [4.0.0.0] - 2025-01-11
