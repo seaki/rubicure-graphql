@@ -32,4 +32,12 @@ updates:
   ignore:
   - dependency-name: ruby
     versions:
-    - ">= 3.4"
+    - ">= 3.5"
+- package-ecosystem: docker
+  directory: "/ci/ruby4.0"
+  schedule:
+    interval: daily
+  ignore:
+  - dependency-name: ruby
+    versions:
+    - ">= 4.1"
