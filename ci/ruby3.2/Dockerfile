@@ -7,5 +7,5 @@ ENV BUNDLE_FORCE_RUBY_PLATFORM=1
 RUN apk update && \
 apk upgrade && \
 apk add --update --no-cache --virtual=build-dependencies build-base libxml2-dev libxslt-dev && \
-apk add --update --no-cache libxml2 libxslt tzdata && \
+apk add --update --no-cache libxml2 libxslt tzdata git && \
 gem install bundler -v 2.4.22
