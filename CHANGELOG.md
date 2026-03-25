@@ -3,6 +3,11 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.6.0] - 2026-03-25
+
+* Update rubicure gem to 4.1.6 (#718,#738)
+* Add support for Ruby 4.0 (#748)
+
 ## [4.0.2.0] - 2025-02-25
 
 * Update rubicure gem to 4.0.2 (#685)
