@@ -5,7 +5,7 @@ ruby ">= 3.3"
 
 gem "graphql"
 gem "graphiql-rails"
-gem "rubicure"
+gem "rubicure", github: "sue445/rubicure", ref: "f2adae09cd9d8997615ae0cc091917395a6a5b41"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.0"
