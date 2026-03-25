@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/sue445/rubicure.git
+  revision: f2adae09cd9d8997615ae0cc091917395a6a5b41
+  ref: f2adae09cd9d8997615ae0cc091917395a6a5b41
+  specs:
+    rubicure (4.2.2)
+      activesupport (>= 5.0.0)
+      hashie (>= 2.0.5)
+      sengiri_yaml (>= 1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -212,10 +222,6 @@ GEM
       rspec-mocks (>= 3.13.0, < 5.0.0)
       rspec-support (>= 3.13.0, < 5.0.0)
     rspec-support (3.13.8)
-    rubicure (4.2.2)
-      activesupport (>= 5.0.0)
-      hashie (>= 2.0.5)
-      sengiri_yaml (>= 1.0.0)
     securerandom (0.4.1)
     sengiri_yaml (1.0.2)
     sqlite3 (2.10.2)
@@ -244,7 +250,7 @@ DEPENDENCIES
   puma
   rails (~> 8.1.0)
   rspec-rails
-  rubicure
+  rubicure!
   sqlite3
   timecop
   tzinfo-data
