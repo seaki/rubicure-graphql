@@ -5,7 +5,7 @@ ruby ">= 2.7.8"
 
 gem "graphql"
 gem "graphiql-rails"
-gem "rubicure"
+gem "rubicure", github: 'seaki/rubicure', branch: "master"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.5", ">= 7.1.5.1"
