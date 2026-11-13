@@ -1,0 +1,36 @@
+name: RSpec
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  rspec:
+    name: rspec (${{ matrix.ruby }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Each entry is a directory under ci/ whose Dockerfile pins the Ruby image (kept up to date by Dependabot)
+        ruby: [ruby3.2, ruby3.3, ruby3.4, ruby4.0]
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build image
+        run: docker build -t rspec-${{ matrix.ruby }} ci/${{ matrix.ruby }}
+
+      - uses: actions/cache@v6
+        with:
+          path: vendor/bundle
+          key: bundle-${{ matrix.ruby }}-${{ hashFiles(format('ci/{0}/Dockerfile', matrix.ruby)) }}-${{ hashFiles('Gemfile.lock') }}
+          restore-keys: bundle-${{ matrix.ruby }}-${{ hashFiles(format('ci/{0}/Dockerfile', matrix.ruby)) }}-
+
+      - name: Run RSpec
+        run: >-
+          docker run --rm -v "$PWD:/app" -w /app -e BUNDLE_PATH=vendor/bundle
+          rspec-${{ matrix.ruby }}
+          sh -c "ruby -v && bundle install --jobs 4 && bundle exec rspec"
