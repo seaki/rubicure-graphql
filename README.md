@@ -4,13 +4,24 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 ## Requirements
 
-* ruby >= 2.7.0
+* ruby >= 3.2.0
 
-* rails
+* rails 8.1
 
 * rubicure >= 3.2.2 (uses #members)
 
 * Compose V2 (when deploy into container)
+
+## Branches
+
+Each supported Rails version has its own branch. This is the `master` branch.
+
+| Branch | Rails | Ruby |
+| --- | --- | --- |
+| `master` | 8.1 | >= 3.2 |
+| `rails-8.0` | 8.0 | >= 3.2 |
+| `rails-7.2` | 7.2 | >= 3.1 |
+| `rails-7.1` | 7.1 | >= 2.7 |
 
 ## How to hack
 
