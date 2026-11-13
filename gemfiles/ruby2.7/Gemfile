@@ -1,0 +1,8 @@
+# Gemfile for running this app on Ruby 2.7. It shares the gem list with the
+# top-level Gemfile but keeps its own Gemfile.lock next to this file, because
+# the top-level Gemfile.lock holds gem versions that no longer support Ruby 2.7.
+#
+#   BUNDLE_GEMFILE=gemfiles/ruby2.7/Gemfile bundle install
+eval_gemfile "../../Gemfile"
+
+ruby "~> 2.7.0"
