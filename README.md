@@ -4,13 +4,31 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 ## Requirements
 
-* ruby >= 2.7.0
+* ruby >= 3.1.0
 
-* rails
+* rails 7.2
 
 * rubicure >= 3.2.2 (uses #members)
 
 * Compose V2 (when deploy into container)
+
+## Branches
+
+Each supported Rails version has its own branch. This is the `rails-7.2` branch.
+
+| Branch | Rails | Ruby |
+| --- | --- | --- |
+| `master` | 8.1 | >= 3.2 |
+| `rails-8.0` | 8.0 | >= 3.2 |
+| `rails-7.2` | 7.2 | >= 3.1 |
+| `rails-7.1` | 7.1 | >= 2.7 |
+
+`Gemfile.lock` on this branch needs Ruby 3.2 or later. On Ruby 3.1, use the Gemfile under `gemfiles/`, which has its own `Gemfile.lock`:
+
+```
+$ BUNDLE_GEMFILE=gemfiles/ruby3.1/Gemfile bundle install
+$ BUNDLE_GEMFILE=gemfiles/ruby3.1/Gemfile bundle exec rails server
+```
 
 ## How to hack
 
