@@ -245,12 +245,12 @@ DEPENDENCIES
   debug
   graphiql-rails
   graphql
-  puma (>= 5.0)
-  rails (~> 7.2.4)
+  puma
+  rails (~> 7.2.0)
   rspec-rails
   rubicure
   sprockets-rails
-  sqlite3 (>= 1.4)
+  sqlite3
   timecop
   tzinfo-data
 
