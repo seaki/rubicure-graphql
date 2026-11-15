@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         # Each entry is a directory under ci/ whose Dockerfile pins the Ruby image (kept up to date by Dependabot)
-        ruby: [ruby3.2, ruby3.3, ruby3.4, ruby4.0]
+        ruby: [ruby3.3, ruby3.4, ruby4.0]
     steps:
       - uses: actions/checkout@v7
 
@@ -31,6 +31,7 @@ jobs:
 
       - name: Run RSpec
         run: >-
-          docker run --rm -v "$PWD:/app" -w /app -e BUNDLE_PATH=vendor/bundle
+          docker run --rm -v "$PWD:/app" -w /app
+          -e BUNDLE_PATH=/app/vendor/bundle -e BUNDLE_FROZEN=true
           rspec-${{ matrix.ruby }}
           sh -c "ruby -v && bundle install --jobs 4 && bundle exec rspec"
