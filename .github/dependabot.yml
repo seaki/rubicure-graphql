@@ -18,14 +18,6 @@ updates:
   schedule:
     interval: daily
 - package-ecosystem: docker
-  directory: "/ci/ruby3.2"
-  schedule:
-    interval: daily
-  ignore:
-  - dependency-name: ruby
-    versions:
-    - ">= 3.3"
-- package-ecosystem: docker
   directory: "/ci/ruby3.3"
   schedule:
     interval: daily
@@ -51,6 +43,37 @@ updates:
     - ">= 4.1"
 - package-ecosystem: github-actions
   directory: "/"
+  schedule:
+    interval: daily
+
+# rails-8.1-ruby-3.2
+- package-ecosystem: bundler
+  directory: "/"
+  target-branch: rails-8.1-ruby-3.2
+  schedule:
+    interval: daily
+  versioning-strategy: lockfile-only
+- package-ecosystem: docker
+  directory: "/"
+  target-branch: rails-8.1-ruby-3.2
+  schedule:
+    interval: daily
+  ignore:
+  - dependency-name: ruby
+    versions:
+    - ">= 3.3"
+- package-ecosystem: docker
+  directory: "/ci/ruby3.2"
+  target-branch: rails-8.1-ruby-3.2
+  schedule:
+    interval: daily
+  ignore:
+  - dependency-name: ruby
+    versions:
+    - ">= 3.3"
+- package-ecosystem: github-actions
+  directory: "/"
+  target-branch: rails-8.1-ruby-3.2
   schedule:
     interval: daily
 
@@ -143,15 +166,6 @@ updates:
   schedule:
     interval: daily
 - package-ecosystem: docker
-  directory: "/ci/ruby3.2"
-  target-branch: rails-7.2
-  schedule:
-    interval: daily
-  ignore:
-  - dependency-name: ruby
-    versions:
-    - ">= 3.3"
-- package-ecosystem: docker
   directory: "/ci/ruby3.3"
   target-branch: rails-7.2
   schedule:
@@ -181,6 +195,37 @@ updates:
 - package-ecosystem: github-actions
   directory: "/"
   target-branch: rails-7.2
+  schedule:
+    interval: daily
+
+# rails-7.2-ruby-3.2
+- package-ecosystem: bundler
+  directory: "/"
+  target-branch: rails-7.2-ruby-3.2
+  schedule:
+    interval: daily
+  versioning-strategy: lockfile-only
+- package-ecosystem: docker
+  directory: "/"
+  target-branch: rails-7.2-ruby-3.2
+  schedule:
+    interval: daily
+  ignore:
+  - dependency-name: ruby
+    versions:
+    - ">= 3.3"
+- package-ecosystem: docker
+  directory: "/ci/ruby3.2"
+  target-branch: rails-7.2-ruby-3.2
+  schedule:
+    interval: daily
+  ignore:
+  - dependency-name: ruby
+    versions:
+    - ">= 3.3"
+- package-ecosystem: github-actions
+  directory: "/"
+  target-branch: rails-7.2-ruby-3.2
   schedule:
     interval: daily
 
@@ -228,15 +273,6 @@ updates:
   schedule:
     interval: daily
 - package-ecosystem: docker
-  directory: "/ci/ruby3.2"
-  target-branch: rails-7.1
-  schedule:
-    interval: daily
-  ignore:
-  - dependency-name: ruby
-    versions:
-    - ">= 3.3"
-- package-ecosystem: docker
   directory: "/ci/ruby3.3"
   target-branch: rails-7.1
   schedule:
@@ -266,6 +302,37 @@ updates:
 - package-ecosystem: github-actions
   directory: "/"
   target-branch: rails-7.1
+  schedule:
+    interval: daily
+
+# rails-7.1-ruby-3.2
+- package-ecosystem: bundler
+  directory: "/"
+  target-branch: rails-7.1-ruby-3.2
+  schedule:
+    interval: daily
+  versioning-strategy: lockfile-only
+- package-ecosystem: docker
+  directory: "/"
+  target-branch: rails-7.1-ruby-3.2
+  schedule:
+    interval: daily
+  ignore:
+  - dependency-name: ruby
+    versions:
+    - ">= 3.3"
+- package-ecosystem: docker
+  directory: "/ci/ruby3.2"
+  target-branch: rails-7.1-ruby-3.2
+  schedule:
+    interval: daily
+  ignore:
+  - dependency-name: ruby
+    versions:
+    - ">= 3.3"
+- package-ecosystem: github-actions
+  directory: "/"
+  target-branch: rails-7.1-ruby-3.2
   schedule:
     interval: daily
 
