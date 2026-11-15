@@ -213,13 +213,6 @@ GEM
       sengiri_yaml (>= 1.0.0)
     securerandom (0.4.1)
     sengiri_yaml (1.0.2)
-    sprockets (4.2.1)
-      concurrent-ruby (~> 1.0)
-      rack (>= 2.2.4, < 4)
-    sprockets-rails (3.5.2)
-      actionpack (>= 6.1)
-      activesupport (>= 6.1)
-      sprockets (>= 3.0.0)
     sqlite3 (2.10.2)
       mini_portile2 (~> 2.8.0)
     stringio (3.2.0)
@@ -248,7 +241,6 @@ DEPENDENCIES
   rails (~> 8.0.0)
   rspec-rails
   rubicure
-  sprockets-rails
   sqlite3
   timecop
   tzinfo-data

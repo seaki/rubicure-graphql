@@ -13,6 +13,17 @@ RSpec.describe "GraphiQL Endpoint", type: :request do
         get graphiql_rails_path
         expect(response).to have_http_status(200)
       end
+
+      it "serves the assets bundled with graphiql-rails without an asset pipeline" do
+        get graphiql_rails_path
+        asset_paths = response.body.scan(%r{(?:href|src)="(/graphiql-rails/[^"]+)"}).flatten
+        expect(asset_paths).not_to be_empty
+
+        asset_paths.each do |path|
+          get path
+          expect(response).to have_http_status(200)
+        end
+      end
     end
 
     context "when ENABLE_GRAPHIQL is not set" do
