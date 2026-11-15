@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         # Each entry is a directory under ci/ whose Dockerfile pins the Ruby image (kept up to date by Dependabot)
-        ruby: [ruby3.2, ruby3.3, ruby3.4, ruby4.0]
+        ruby: [ruby3.3, ruby3.4, ruby4.0]
     steps:
       - uses: actions/checkout@v7
 
