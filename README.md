@@ -4,7 +4,7 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 ## Requirements
 
-* ruby >= 3.1.0
+* ruby 3.1
 
 * rails 7.2
 
@@ -14,21 +14,19 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 ## Branches
 
-Each supported Rails version has its own branch. This is the `rails-7.2` branch.
+Each supported Rails version has its own branch. A Ruby version that the latest gems no longer support is split off into its own `rails-<Rails>-ruby-<Ruby>` branch. This is the `rails-7.2-ruby-3.1` branch.
 
 | Branch | Rails | Ruby |
 | --- | --- | --- |
 | `master` | 8.1 | >= 3.2 |
-| `rails-8.0` | 8.0 | >= 3.2 |
-| `rails-7.2` | 7.2 | >= 3.1 |
-| `rails-7.1` | 7.1 | >= 2.7 |
-
-`Gemfile.lock` on this branch needs Ruby 3.2 or later. On Ruby 3.1, use the Gemfile under `gemfiles/`, which has its own `Gemfile.lock`:
-
-```
-$ BUNDLE_GEMFILE=gemfiles/ruby3.1/Gemfile bundle install
-$ BUNDLE_GEMFILE=gemfiles/ruby3.1/Gemfile bundle exec rails server
-```
+| `rails-8.0` | 8.0 | >= 3.3 |
+| `rails-8.0-ruby-3.2` | 8.0 | 3.2 |
+| `rails-7.2` | 7.2 | >= 3.2 |
+| `rails-7.2-ruby-3.1` | 7.2 | 3.1 |
+| `rails-7.1` | 7.1 | >= 3.2 |
+| `rails-7.1-ruby-3.1` | 7.1 | 3.1 |
+| `rails-7.1-ruby-3.0` | 7.1 | 3.0 |
+| `rails-7.1-ruby-2.7` | 7.1 | 2.7 |
 
 ## How to hack
 
