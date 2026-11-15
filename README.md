@@ -4,9 +4,7 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 ## Requirements
 
-* ruby >= 3.3.0
-
-* rails 8.0
+* ruby and rails: each branch supports one Rails version and a range of Ruby versions, see [Branches](#branches)
 
 * rubicure >= 3.2.2 (uses #members)
 
@@ -14,16 +12,19 @@ Rubicure-graphql is Precure, Japanese battle heroine "Pretty Cure (Precure)" Gra
 
 ## Branches
 
-Each supported Rails version has its own branch. A Ruby version that the latest gems no longer support is split off into its own `rails-<Rails>-ruby-<Ruby>` branch. This is the `rails-8.0` branch.
+Each supported Rails version has its own branch. A Ruby version that the latest gems no longer support is split off into its own `rails-<Rails>-ruby-<Ruby>` branch. `README.md` is the same on every branch.
 
 | Branch | Rails | Ruby |
 | --- | --- | --- |
-| `master` | 8.1 | >= 3.2 |
+| `master` | 8.1 | >= 3.3 |
+| `rails-8.1-ruby-3.2` | 8.1 | 3.2 |
 | `rails-8.0` | 8.0 | >= 3.3 |
 | `rails-8.0-ruby-3.2` | 8.0 | 3.2 |
-| `rails-7.2` | 7.2 | >= 3.2 |
+| `rails-7.2` | 7.2 | >= 3.3 |
+| `rails-7.2-ruby-3.2` | 7.2 | 3.2 |
 | `rails-7.2-ruby-3.1` | 7.2 | 3.1 |
-| `rails-7.1` | 7.1 | >= 3.2 |
+| `rails-7.1` | 7.1 | >= 3.3 |
+| `rails-7.1-ruby-3.2` | 7.1 | 3.2 |
 | `rails-7.1-ruby-3.1` | 7.1 | 3.1 |
 | `rails-7.1-ruby-3.0` | 7.1 | 3.0 |
 | `rails-7.1-ruby-2.7` | 7.1 | 2.7 |
