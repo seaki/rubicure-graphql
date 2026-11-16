@@ -200,6 +200,32 @@ QUERYSTRING
     end
   end
 
+  describe "series(seriesName:) with a name that is not a series" do
+    let(:result) { RubicureGraphqlSchema.execute(query_string) }
+
+    ["unknown", "all_stars", "class", "object_id", "send", ""].each do |name|
+      context "seriesName: #{name.inspect}" do
+        let(:query_string) { %({ series(seriesName: "#{name}") { seriesName } }) }
+
+        it "returns an error" do
+          expect(result.to_h).to match(
+            "data" => nil,
+            "errors" => [a_hash_including("message" => "unknown series: #{name}", "path" => ["series"])]
+          )
+        end
+      end
+    end
+
+    context "when the name is a method of Precure" do
+      let(:query_string) { %({ series(seriesName: "all_stars") { seriesName } }) }
+
+      it "does not call the method" do
+        expect(Rubicure::Core.instance).not_to receive(:all_stars)
+        result
+      end
+    end
+  end
+
   describe "version" do
     let(:query_string) do
       <<QUERYSTRING
