@@ -28,6 +28,9 @@ RSpec.describe "GraphiQL Endpoint", type: :request do
 
     context "when ENABLE_GRAPHIQL is not set" do
       before do
+        # Do not depend on the environment the specs are run in.
+        allow(ENV).to receive(:[]).and_call_original
+        allow(ENV).to receive(:[]).with('ENABLE_GRAPHIQL').and_return(nil)
         Rails.application.reload_routes!
       end
 
@@ -35,9 +38,37 @@ RSpec.describe "GraphiQL Endpoint", type: :request do
         expect{ get graphiql_rails_path }.to raise_error(NameError)
       end
 
-      it "is expect to fail" do
-        # but it will be redirected to 500
-        # expect{ get '/graphiql' }.to raise_error(ActionController::RoutingError)
+      it "returns 404" do
+        get '/graphiql'
+        expect(response).to have_http_status(404)
+      end
+    end
+  end
+
+  describe "GET /" do
+    context "when ENABLE_GRAPHIQL is set" do
+      before do
+        allow(ENV).to receive(:[]).and_call_original
+        allow(ENV).to receive(:[]).with('ENABLE_GRAPHIQL').and_return('true')
+        Rails.application.reload_routes!
+      end
+
+      it "redirects to GraphiQL" do
+        get '/'
+        expect(response).to redirect_to('/graphiql')
+      end
+    end
+
+    context "when ENABLE_GRAPHIQL is not set" do
+      before do
+        allow(ENV).to receive(:[]).and_call_original
+        allow(ENV).to receive(:[]).with('ENABLE_GRAPHIQL').and_return(nil)
+        Rails.application.reload_routes!
+      end
+
+      it "returns 404" do
+        get '/'
+        expect(response).to have_http_status(404)
       end
     end
   end
