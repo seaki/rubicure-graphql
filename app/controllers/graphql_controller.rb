@@ -6,6 +6,9 @@ class GraphqlController < ApplicationController
   # but you'll have to authenticate your user separately
   # protect_from_forgery with: :null_session
 
+  # The request cannot be executed because "variables" is not a JSON object.
+  class InvalidVariablesError < StandardError; end
+
   def execute
     variables = prepare_variables(params[:variables])
     query = params[:query]
@@ -16,6 +19,8 @@ class GraphqlController < ApplicationController
     }
     result = RubicureGraphqlSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result
+  rescue InvalidVariablesError => e
+    render json: { errors: [{ message: e.message }] }, status: :bad_request
   rescue StandardError => e
     raise e unless Rails.env.development?
     handle_error_in_development(e)
@@ -28,7 +33,7 @@ class GraphqlController < ApplicationController
     case variables_param
     when String
       if variables_param.present?
-        JSON.parse(variables_param) || {}
+        parse_variables(variables_param)
       else
         {}
       end
@@ -39,8 +44,18 @@ class GraphqlController < ApplicationController
     when nil
       {}
     else
-      raise ArgumentError, "Unexpected parameter: #{variables_param}"
+      raise InvalidVariablesError, "variables must be an object"
     end
+  end
+
+  def parse_variables(json)
+    variables = JSON.parse(json)
+    return {} if variables.nil?
+    raise InvalidVariablesError, "variables must be an object" unless variables.is_a?(Hash)
+
+    variables
+  rescue JSON::ParserError
+    raise InvalidVariablesError, "variables is not valid JSON"
   end
 
   def handle_error_in_development(e)
