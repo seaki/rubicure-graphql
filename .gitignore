@@ -36,3 +36,6 @@
 
 # Ignore byebug command history.
 /.byebug_history
+
+# Ignore backup files.
+*.bak
