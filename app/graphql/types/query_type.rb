@@ -50,8 +50,18 @@ module Types
     field :series, Types::SeriesType, null: false, description: "Get information about series" do
       argument :series_name, String, required: true, description: "Series symbol"
     end
+    # Names accepted by `series` besides the ones listed in Rubicure::Series.names
+    CURRENT_SERIES_NAMES = %w[now current].freeze
+
     def series(series_name:)
-      Precure.send(series_name)
+      return Precure.now if CURRENT_SERIES_NAMES.include?(series_name)
+
+      # Look the name up in the list of series. The argument comes from the client,
+      # so it must never be used as a method name.
+      name = Rubicure::Series.names.find { |n| n.to_s == series_name }
+      raise GraphQL::ExecutionError, "unknown series: #{series_name}" unless name
+
+      Rubicure::Series.find(name)
     end
 
     field :precure_all_stars, [Types::MemberType], null: false, description: "Get Precure All Stars" do
