@@ -48,6 +48,6 @@ module RubicureGraphql
     # Don't generate system test files.
     config.generators.system_tests = nil
 
-    config.x.version = "4.1.6.0"
+    config.x.version = "4.1.6.1"
   end
 end
