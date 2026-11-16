@@ -36,3 +36,18 @@ jobs:
           -e BUNDLE_PATH=/app/vendor/bundle -e BUNDLE_FROZEN=true
           rspec-${{ matrix.ruby }}
           sh -c "ruby -v && bundle install --jobs 4 && bundle exec rspec"
+
+  # RSpec runs in the test environment on the images under ci/. This job builds the
+  # image of the top-level Dockerfile, the one that gets deployed, and checks that the
+  # application starts and responds in production mode.
+  production:
+    name: production (Dockerfile)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Build image
+        run: docker build -t rubicure-graphql .
+
+      - name: Check the endpoints in production mode
+        run: docker run --rm rubicure-graphql ruby script/production_smoke.rb
