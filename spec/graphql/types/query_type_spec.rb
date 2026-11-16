@@ -155,7 +155,59 @@ QUERYSTRING
         Timecop.freeze('2020-02-01') { e.run }
       end
       it "returns error" do
-        expect { result }.to raise_error(Rubicure::NotOnAirError)
+        res = RubicureGraphqlSchema.execute(query_string).to_h
+
+        expect(res["data"]).to be_nil
+        expect(res["errors"].map { |e| e["message"] }.uniq).to eq ["Not on air precure!"]
+      end
+    end
+  end
+
+  describe "series(seriesName: now) when no series is on air" do
+    around do |e|
+      Timecop.freeze('2020-02-01') { e.run }
+    end
+
+    it "returns error" do
+      res = RubicureGraphqlSchema.execute('{ series(seriesName: "now") { seriesName } }').to_h
+
+      expect(res).to match(
+        "data" => nil,
+        "errors" => [a_hash_including("message" => "Not on air precure!", "path" => ["series"])]
+      )
+    end
+  end
+
+  describe "names that do not exist" do
+    {
+      '{ member(memberName: "unknown") { memberName } }' => ["member", "unknown member: unknown"],
+      '{ member(memberName: "") { memberName } }' => ["member", "unknown member: "],
+      '{ member(memberName: "class") { memberName } }' => ["member", "unknown member: class"],
+      '{ girl(girlName: "unknown") { girlName } }' => ["girl", "unknown girl: unknown"],
+      '{ movie(movieName: "unknown") { name } }' => ["movie", "unknown movie: unknown"],
+      '{ movie(movieName: "") { name } }' => ["movie", "unknown movie: "],
+      '{ precureAllStars(series: "unknown") { memberName } }' => ["precureAllStars", "unknown movie: unknown"],
+      '{ color(color: "unknown") { color } }' => ["color", "unknown color: unknown"],
+      '{ color(color: "") { color } }' => ["color", "unknown color: "],
+    }.each do |query, (field, message)|
+      context query do
+        it "returns an error" do
+          res = RubicureGraphqlSchema.execute(query).to_h
+
+          expect(res).to match(
+            "data" => nil,
+            "errors" => [a_hash_including("message" => message, "path" => [field])]
+          )
+        end
+      end
+    end
+
+    context "precureAllStars with an empty series" do
+      it "is the same as without the argument" do
+        res = RubicureGraphqlSchema.execute('{ a: precureAllStars(series: "") { memberName } b: precureAllStars { memberName } }').to_h
+
+        expect(res["errors"]).to be_nil
+        expect(res["data"]["a"]).to eq res["data"]["b"]
       end
     end
   end
