@@ -3,6 +3,14 @@ Changelog
 
 All notable changes to this project will be documented in this file.
 
+## [4.2.2.0] - 2026-11-17
+
+### Security fixes :lock:
+* Fix `series(seriesName:)` calling the method named by the argument, which let a request stop the server (#857)
+
+### Updates
+* Update rubicure gem to 4.2.2 (#786)
+
 ## [4.1.6.0] - 2026-03-25
 
 * Update rubicure gem to 4.1.6 (#718,#738)
