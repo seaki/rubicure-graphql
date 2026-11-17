@@ -57,8 +57,14 @@ You have to set environment values if running in production env.
 
 ```
 RAILS_ENV=production
-SECRET_KEY_BASE=(generate with `docker compose run --rm app rails secret`)
+SECRET_KEY_BASE=(generate with `docker compose run --rm web bin/rails secret`)
 RAILS_SERVE_STATIC_FILES=true (or enabled)
+```
+
+Instead of setting `SECRET_KEY_BASE`, you can run the following once. It creates `config/master.key` and `config/credentials.yml.enc` containing `secret_key_base`, and the app reads them through the volume mount of `compose.yaml`. Both files are ignored by git, so keep `config/master.key` safe on the host. `SECRET_KEY_BASE` takes precedence if it is also set.
+
+```
+$ docker compose run --rm -e EDITOR=vi web bin/rails credentials:edit
 ```
 
 ### Deploy to heroku
