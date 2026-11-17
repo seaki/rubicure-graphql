@@ -31,8 +31,26 @@
 
 /public/assets
 
+# `rails credentials:edit` appends the next blocks to this file unless they are here
+# (Rails 8.0 and earlier look for /config/master.key, or /config/credentials/<env>.key
+# with --environment, and Rails 8.1 for /config/*.key or /config/credentials/*.key).
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/credentials/production.key
+
+# Ignore key files for decrypting credentials and more.
+/config/*.key
+
+# Ignore key files for decrypting credentials and more.
+/config/credentials/*.key
+
+# Ignore credentials. Each host makes its own; the app reads SECRET_KEY_BASE from the environment.
+/config/credentials.yml.enc
+/config/credentials/*.yml.enc
+
+# Ignore Compose override files, which are made on each host.
+/compose.override.yaml
+/compose.override.yml
 
 # Ignore byebug command history.
 /.byebug_history
