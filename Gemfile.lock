@@ -217,8 +217,6 @@ GEM
       sengiri_yaml (>= 1.0.0)
     securerandom (0.4.1)
     sengiri_yaml (1.0.2)
-    sqlite3 (2.10.2)
-      mini_portile2 (~> 2.8.0)
     thor (1.5.0)
     timecop (0.9.11)
     timeout (0.6.1)
@@ -243,7 +241,6 @@ DEPENDENCIES
   rails (~> 7.2.0)
   rspec-rails
   rubicure
-  sqlite3
   timecop
   tzinfo-data
 
